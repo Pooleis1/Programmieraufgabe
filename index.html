@@ -463,9 +463,9 @@
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 20px;
     }
-    .footer-copy { font-size: .85rem; color: rgba(255,255,255,.35); }
+    .footer-copy { font-size: .85rem; color: rgba(255,255,255,.8); }
     .footer-links { display: flex; gap: 28px; }
-    .footer-links a { font-size: .85rem; color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; }
+    .footer-links a { font-size: .85rem; color: rgba(255,255,255,.8); text-decoration: none; transition: color .2s; }
     .footer-links a:hover { color: var(--accent); }
 
     /* ─── UTILS ─── */
@@ -542,10 +542,14 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" :class="{ open: menuOpen }">
     <a href="#features"  @click="menuOpen=false">Funktionen</a>
-    <a href="#how"       @click="menuOpen=false">So funktioniert's</a>
+    <a href="#bsp"       @click="menuOpen=false">Beispiele</a>
     <a href="#pricing"   @click="menuOpen=false">Preise</a>
-    <a href="#support"   @click="menuOpen=false">Wartung & Support</a>
-    <a href="#contact"   @click="menuOpen=false">Demo anfragen →</a>
+    <a href="#contact"   @click="menuOpen=false">Kontakt</a>
+    <a href="" @click="menuOpen=false">Barrierekeitserklärung</a>
+    <a href="" @click="menuOpen=false">Urherberrechtshinweise</a>
+    <a href="" @click="menuOpen=false">Lizenz</a>
+    <a href="" @click="menuOpen=false">Datenschutzerklärung</a>
+    <a href="" @click="menuOpen=false">Impressum</a>
   </div>
 
   <!-- HERO -->
