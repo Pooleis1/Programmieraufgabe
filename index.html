@@ -676,18 +676,18 @@
             <input type="text" v-model="form.firstName" placeholder="Max" id="vname"/>
           </div>
           <div class="form-group">
-            <label>Nachname *</label>
-            <input type="text" v-model="form.lastName" placeholder="Mustermann" />
+            <label for="nname">Nachname *</label>
+            <input type="text" v-model="form.lastName" placeholder="Mustermann" id="nname"/>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Firma *</label>
-            <input type="text" v-model="form.company" placeholder="Musterfirma GmbH" />
+            <label for="company">Firma *</label>
+            <input type="text" v-model="form.company" placeholder="Musterfirma GmbH" id="company"/>
           </div>
           <div class="form-group">
-            <label>Anzahl Mitarbeiter</label>
-            <select v-model="form.size">
+            <label for="employeesize">Anzahl Mitarbeiter</label>
+            <select id="employeesize" v-model="form.size">
               <option value="">Bitte wählen</option>
               <option>1–20</option>
               <option>21–50</option>
@@ -697,20 +697,20 @@
           </div>
         </div>
         <div class="form-group">
-          <label>E-Mail *</label>
-          <input type="email" v-model="form.email" placeholder="max@musterfirma.at" />
+          <label for="mail">E-Mail *</label>
+          <input type="email" v-model="form.email" placeholder="max@musterfirma.at" id="mail"/>
         </div>
         <div class="form-group">
-          <label>Interesse an</label>
-          <select v-model="form.plan">
+          <label id="interest">Interesse an</label>
+          <select id="interest" v-model="form.plan">
             <option value="">Bitte wählen</option>
             <option>Standard-Paket (Fixpreis)</option>
             <option>Individuell-Paket (individuell)</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Nachricht / Besondere Anforderungen</label>
-          <textarea v-model="form.message" placeholder="Beschreib kurz euer Office-Setup oder spezielle Wünsche ..."></textarea>
+          <label for="extra">Nachricht / Besondere Anforderungen</label>
+          <textarea v-model="form.message" placeholder="Beschreib kurz euer Office-Setup oder spezielle Wünsche ..." id="extra"></textarea>
         </div>
         <button class="btn-primary form-submit" @click="submitForm">
           <span v-if="!formSent">Anfrage absenden →</span>
