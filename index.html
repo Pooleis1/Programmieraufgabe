@@ -613,7 +613,7 @@
           <div class="showcase-slider" :style="{ transform: `translateX(-${scCurrent * 100}%)` }">
             <div class="showcase-slide" v-for="(slide, i) in showcaseSlides" :key="i">
               
-              <img :src="slide.image" :alt="slide.title" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;">
+              <img :src="slide.image" :alt="slide.altText" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;">
               
               <div class="showcase-info">
                 <div>
@@ -727,12 +727,6 @@
   <!-- ─── FOOTER ─── -->
   <footer>
     <div class="logo" style="text-decoration:none;">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm4 11h-1v3h-3v1h3v3h1v-3h3v-1h-3v-3z"/>
-        </svg>
-      </div>
-      <span class="logo-name">Desk<span>Flow</span></span>
     </div>
     <div class="footer-copy">© 2026 FlexWork+ · Alle Rechte vorbehalten</div>
     <div class="footer-links">
@@ -810,6 +804,7 @@ createApp({
         tag: 'Dashboard',
         title: 'Dashboard Übersicht',
         desc: 'Alle Buchungen und die Floor occupancy auf einer Seite geammelt',
+        altText: 'Screenshot der Dashboard Seite',
         image: './src/assets/Dashboard_Page.png'
       },
       {
@@ -817,6 +812,7 @@ createApp({
         tag: 'Ansicht',
         title: 'Interaktiver Sitzplan',
         desc: 'Dein Team sieht auf einen Blick, welche Plätze frei sind – farblich codiert, in Echtzeit aktuell.',
+        altText: 'Screenshot der Sitzplan Seite',
         image: './src/assets/Booking_Page.png'
       },
       {
@@ -824,6 +820,7 @@ createApp({
         tag: 'Admin',
         title: 'Admin Dashboard',
         desc: 'Der Admin kann alle Buchungen einsehen und diese bearbeiten',
+        altText: 'Screenshot der Admin Dashboard Seite',
         image: './src/assets/Admin_Page.png'
       },
       
@@ -832,6 +829,7 @@ createApp({
         tag: 'Admin Settings',
         title: 'Admin Einstellungen',
         desc: 'Admins können außerdem die Rollen verwalten und verwalten, welche Mitarbeiter zu welchem Team gehören',
+        altText: 'Screenshot der Admin Settings Seite',
         image: './src/assets/Admin_Settings.png'
       }
     ];
