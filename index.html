@@ -120,43 +120,58 @@
     }
     .mobile-menu a:last-child { border: none; }
 
-    /* ─── HERO / BANNER ─── */
+    /* HERO */
     #hero {
       padding-top: var(--nav-h);
-      min-height: 85vh;
-      display: grid; grid-template-rows: 1fr;
+      min-height: 62vh;
       background: var(--navy);
-      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 85%, rgba(45,156,219,.2) 0%, transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(26,75,140,.4) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(45,156,219,.05) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    .hero-inner {
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: flex-start;
-      padding: 80px 48px 60px;
+    .hero-left {
+      width: 100%; max-width: 900px;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 80px 48px;
       position: relative; z-index: 2;
-      max-width: 680px;
     }
-    
+    .hero-sub { max-width: 560px; }
+    .hero-actions { justify-content: center; }
+
     .hero-title {
       font-family: var(--font-head);
-      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
       font-weight: 800; line-height: 1.1; letter-spacing: -.03em;
-      color: white; margin-bottom: 20px;
+      color: white; margin-bottom: 18px;
     }
     .hero-title em { font-style: normal; color: var(--accent); }
 
     .hero-sub {
-      font-size: 1.1rem; font-weight: 300; line-height: 1.7;
-      color: rgba(255,255,255,.65); margin-bottom: 40px; max-width: 520px;
+      font-size: 1rem; font-weight: 300; line-height: 1.75;
+      color: rgba(255,255,255,.6); margin-bottom: 36px; max-width: 440px;
     }
 
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
+    .hero-trust { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
+    .hero-trust-item { display: flex; align-items: center; gap: 8px; font-size: .8rem; color: rgba(255,255,255,.4); }
+    .hero-trust-item svg { width: 14px; height: 14px; fill: var(--accent); opacity: .8; }
+
+    /* BUTTONS */
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--accent); color: white;
-      padding: 14px 28px; border-radius: 10px;
-      font-family: var(--font-body); font-size: 1rem; font-weight: 500;
+      padding: 13px 26px; border-radius: 10px;
+      font-family: var(--font-body); font-size: .95rem; font-weight: 500;
       text-decoration: none; transition: background .2s, transform .15s;
       border: none; cursor: pointer;
     }
@@ -164,12 +179,13 @@
 
     .btn-outline {
       display: inline-flex; align-items: center; gap: 8px;
-      border: 1.5px solid rgba(255,255,255,.3); color: white;
-      padding: 13px 28px; border-radius: 10px;
-      font-family: var(--font-body); font-size: 1rem; font-weight: 400;
-      text-decoration: none; transition: border-color .2s, background .2s;
+      border: 1.5px solid rgba(255,255,255,.28); color: rgba(255,255,255,.8);
+      padding: 12px 26px; border-radius: 10px;
+      font-family: var(--font-body); font-size: .95rem; font-weight: 400;
+      text-decoration: none; transition: border-color .2s, background .2s, color .2s;
     }
-    .btn-outline:hover { border-color: white; background: rgba(255,255,255,.08); }
+    .btn-outline:hover { border-color: white; color: white; background: rgba(255,255,255,.07); }
+
 
     /* ─── SECTION COMMON ─── */
     section { scroll-margin-top: var(--nav-h); }
@@ -243,27 +259,9 @@
       font-weight: 300;
     }
 
-    /* Stats row */
-    .stats-row {
-      max-width: 1200px; margin: 72px auto 0;
-      display: flex; gap: 0; flex-wrap: wrap;
-      border: 1px solid var(--gray100); border-radius: 16px;
-      overflow: hidden;
-    }
-    .stat-item {
-      flex: 1 1 180px; padding: 36px 32px;
-      text-align: center;
-      border-right: 1px solid var(--gray100);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
-      font-family: var(--font-head); font-size: 2.4rem; font-weight: 800;
-      color: var(--accent); line-height: 1;
-    }
-    .stat-label { font-size: .875rem; color: var(--gray400); margin-top: 6px; }
-
     /* SHOWCASE SLIDER */
-    .showcase-wrap { max-width: 1200px; margin: 80px auto 0; padding-bottom: 110px; }
+    #bsp { padding: 0 48px 110px; background: var(--white); }
+    .showcase-wrap { max-width: 1200px; margin: 0px auto 0; padding-bottom: 110px; }
     .showcase-header { text-align: center; margin-bottom: 52px; }
     .showcase-header .section-sub { margin: 0 auto; }
 
@@ -550,11 +548,13 @@
     <a href="#contact"   @click="menuOpen=false">Demo anfragen →</a>
   </div>
 
-  <!-- ─── HERO ─── -->
+  <!-- HERO -->
   <section id="hero">
-    <div class="hero-inner">
+    <div class="hero-left">
       <h1 class="hero-title">
-        Sitzplätze buchen <br><em>schnell und einfach</em><br> für dein Flexoffice
+        Sitzplätze buchen.<br>
+        <em>Schnell und Einfach</em><br>
+        Für dein Flexoffice
       </h1>
       <p class="hero-sub">
         FlexWork+ ist das Reservierungstool für moderne Flexoffices –
@@ -562,13 +562,13 @@
         zugeschnitten.
       </p>
       <div class="hero-actions">
-        <a href="#pricing" class="btn-primary">
-          Demo anfragen
+        <a href="#prices" class="btn-primary">
+          Produkt kaufen
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="#features" class="btn-outline">Mehr erfahren</a>
       </div>
     </div>
-
   </section>
 
   <!-- ─── FEATURES ─── -->
@@ -673,17 +673,17 @@
         <div class="form-row">
           <div class="form-group">
             <label>Vorname *</label>
-            <input type="text" v-model="form.firstName" placeholder="Max" />
+            <input type="text" v-model="form.firstName" placeholder="Max" alt="Vorname eingabe"/>
           </div>
           <div class="form-group">
             <label>Nachname *</label>
-            <input type="text" v-model="form.lastName" placeholder="Mustermann" />
+            <input type="text" v-model="form.lastName" placeholder="Mustermann" alt="Nachname eingabe"/>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Firma *</label>
-            <input type="text" v-model="form.company" placeholder="Musterfirma GmbH" />
+            <input type="text" v-model="form.company" placeholder="Musterfirma GmbH" alt="Firmenname eingabe" />
           </div>
           <div class="form-group">
             <label>Anzahl Mitarbeiter</label>
