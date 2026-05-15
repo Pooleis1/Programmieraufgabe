@@ -7,118 +7,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/assets/style.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:   #293070;
-      --accent: #007694;
-      --sky:    #e8f4fc;
-      --white:  #ffffff;
-      --gray50: #f7f9fc;
-      --gray100:#edf1f7;
-      --gray400:#8a96a8;
-      --gray700:#3d4a5c;
-      --font-head: 'Syne', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-      --nav-h: 72px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--navy);
-      background: var(--white);
-      overflow-x: hidden;
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: var(--nav-h);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--gray100);
-      transition: box-shadow .3s;
-    }
-    nav.scrolled { box-shadow: 0 4px 24px rgba(10,22,40,.08); }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      /* Verhindert, dass das Logo beim Scrollen gequetscht wird */
-      flex-shrink: 0; 
-      text-decoration: none;
-    }
-
-    .logo img {
-      /* Hier steuerst du die Größe deines Logos */
-      height: 50px;      /* Passe die Höhe so an, dass sie gut in deine Bar passt */
-      width: auto;       /* Behält das Seitenverhältnis bei */
-      display: block;
-      
-      /* Optional: Ein kleiner Übergang, falls du einen Hover-Effekt planst */
-      transition: opacity 0.2s ease;
-    }
-
-    .nav-links {
-      display: flex; align-items: center; gap: 36px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: .9rem; font-weight: 500; letter-spacing: .01em;
-      color: var(--gray700); text-decoration: none;
-      transition: color .2s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-      height: 2px; background: var(--accent);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform .25s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a:hover::after { transform: scaleX(1); }
-
-    .nav-cta {
-      background: var(--navy); color: white !important;
-      padding: 10px 22px; border-radius: 8px;
-      font-weight: 500 !important; font-size: .875rem !important;
-      transition: background .2s, transform .15s !important;
-    }
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--accent) !important; transform: translateY(-1px); }
-
-    .burger {
-      display: none; flex-direction: column; gap: 5px; cursor: pointer;
-      background: none; border: none; padding: 4px;
-    }
-    .burger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--navy); border-radius: 2px;
-      transition: .3s;
-    }
-    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .burger.open span:nth-child(2) { opacity: 0; }
-    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    .mobile-menu {
-      display: none; position: fixed;
-      top: var(--nav-h); left: 0; right: 0; z-index: 99;
-      background: white; border-bottom: 1px solid var(--gray100);
-      padding: 24px 32px; flex-direction: column; gap: 20px;
-      box-shadow: 0 8px 24px rgba(10,22,40,.1);
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-size: 1rem; font-weight: 500; color: var(--gray700);
-      text-decoration: none; padding: 8px 0;
-      border-bottom: 1px solid var(--gray100);
-    }
-    .mobile-menu a:last-child { border: none; }
 
     /* HERO */
     #hero {
@@ -517,40 +407,11 @@
 <div id="app">
 
   <!-- ─── NAVIGATION ─── -->
-  <nav :class="{ scrolled: isScrolled }">
-    <a href="#hero" class="logo">
-      <img src="./src/assets/Logo_Vollversion.png" alt="Firmenlogo">
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="#features">Funktionen</a></li>
-      <li><a href="#bsp">Beispiele</a></li>
-      <li><a href="#pricing">Preise</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-      <li><a href="">Barrierekeitserklärung</a></li>
-      <li><a href="">Urherberrechtshinweise</a></li>
-      <li><a href="">Lizenz</a></li>
-      <li><a href="">Datenschutzerklärung</a></li>
-      <li><a href="">Impressum</a></li>
-    </ul>
-
-    <button class="burger" :class="{ open: menuOpen }" @click="menuOpen = !menuOpen" aria-label="Menü">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" :class="{ open: menuOpen }">
-    <a href="#features"  @click="menuOpen=false">Funktionen</a>
-    <a href="#bsp"       @click="menuOpen=false">Beispiele</a>
-    <a href="#pricing"   @click="menuOpen=false">Preise</a>
-    <a href="#contact"   @click="menuOpen=false">Kontakt</a>
-    <a href="" @click="menuOpen=false">Barrierekeitserklärung</a>
-    <a href="" @click="menuOpen=false">Urherberrechtshinweise</a>
-    <a href="" @click="menuOpen=false">Lizenz</a>
-    <a href="" @click="menuOpen=false">Datenschutzerklärung</a>
-    <a href="" @click="menuOpen=false">Impressum</a>
-  </div>
+  <navigation-component
+    :is-scrolled="isScrolled" 
+    :menu-open="menuOpen"
+    @toggle-menu="menuOpen = !menuOpen">
+  </navigation-component>
 
   <!-- HERO -->
   <section id="hero">
@@ -760,7 +621,7 @@
     </div>
     <div class="footer-copy">© 2026 FlexWork+ · Alle Rechte vorbehalten</div>
     <div class="footer-links">
-      <a href="#">Impressum</a>
+      <a href="impressum.html">Impressum</a>
       <a href="#">Datenschutz</a>
       <a href="#">AGB</a>
     </div>
@@ -768,13 +629,14 @@
 
 </div>
 
+<script src="./src/assets/navigation.js"></script>
+<script src="./src/assets/main.js"></script>
 <script>
 const { createApp, ref, onMounted, onUnmounted } = Vue;
 
-createApp({
+const app = createApp({
   setup() {
-    const isScrolled = ref(false);
-    const menuOpen   = ref(false);
+    const {isScrolled, menuOpen} = useNavigation();
     const scCurrent = ref(0);
     const formSent   = ref(false);
 
@@ -783,9 +645,6 @@ createApp({
       size: '', email: '', plan: '', message: ''
     });
 
-    // Scroll handler
-    const onScroll = () => { isScrolled.value = window.scrollY > 20; };
-
     // Auto-slider
     let sliderInterval;
 
@@ -793,7 +652,6 @@ createApp({
     let observer;
 
     onMounted(() => {
-      window.addEventListener('scroll', onScroll);
 
       sliderInterval = setInterval(() => {
         currentSlide.value = (currentSlide.value + 1) % 3;
@@ -809,7 +667,6 @@ createApp({
     });
 
     onUnmounted(() => {
-      window.removeEventListener('scroll', onScroll);
       clearInterval(sliderInterval);
       if (observer) observer.disconnect();
     });
@@ -941,7 +798,9 @@ createApp({
       features, plans
     };
   }
-}).mount('#app');
+});
+app.component('navigation-component', NavigationComponent);
+app.mount('#app');
 </script>
 </body>
 </html>
