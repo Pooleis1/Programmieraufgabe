@@ -385,6 +385,182 @@
     .fade-in:nth-child(2) { transition-delay: .1s; }
     .fade-in:nth-child(3) { transition-delay: .2s; }
     .fade-in:nth-child(4) { transition-delay: .3s; }
+
+     /* ABOUT US */
+    #about { padding: 110px 48px; background: var(--navy); position: relative; overflow: hidden; }
+    #about::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 10% 90%, rgba(45,156,219,.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 10%, rgba(26,75,140,.3) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .about-inner { max-width: 1200px; margin: 0 auto; }
+
+    .about-header { margin-bottom: 72px; }
+    .about-header .section-title { color: white; }
+    .about-header .section-sub { color: rgba(255,255,255,.5); max-width: 640px; }
+
+    /* Mission + Werte */
+    .about-split {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 80px;
+    }
+    .about-mission {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px; padding: 40px;
+    }
+    .about-mission-label {
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+    }
+    .about-mission h3 {
+      font-family: var(--font-head); font-size: 1.35rem; font-weight: 800;
+      color: white; margin-bottom: 16px; line-height: 1.25; letter-spacing: -.02em;
+    }
+    .about-mission p { font-size: .95rem; line-height: 1.8; color: rgba(255,255,255,.55); font-weight: 300; }
+
+    .about-values { display: flex; flex-direction: column; gap: 16px; }
+    .about-value {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px; padding: 20px 24px;
+      transition: border-color .25s, background .25s;
+    }
+    .about-value:hover { background: rgba(255,255,255,.07); border-color: rgba(45,156,219,.3); }
+    .about-value-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue), var(--accent));
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .about-value-icon svg { width: 20px; height: 20px; fill: white; }
+    .about-value-text h4 {
+      font-family: var(--font-head); font-size: .95rem; font-weight: 700;
+      color: white; margin-bottom: 4px;
+    }
+    .about-value-text p { font-size: .875rem; color: rgba(255,255,255,.45); line-height: 1.6; font-weight: 300; margin: 0; }
+
+    /* ── MARKEN-SECTION ── */
+    .about-brands-title {
+      font-family: var(--font-head); font-size: 1.1rem; font-weight: 700;
+      color: white; margin-bottom: 8px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .about-brands-title svg { width: 18px; height: 18px; fill: var(--accent); }
+    .about-brands-intro { font-size: .9rem; color: rgba(255,255,255,.45); margin-bottom: 40px; line-height: 1.7; font-weight: 300; }
+
+    .brands-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+
+    .brand-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px; overflow: hidden;
+      transition: transform .25s, border-color .25s;
+    }
+    .brand-card:hover { transform: translateY(-4px); border-color: rgba(45,156,219,.35); }
+
+    .brand-preview {
+      aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+
+    /* Marke 1: Wortbildmarke – navy bg mit Logo */
+    .brand-preview-1 { 
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px; 
+    }
+
+    .brand-preview img {
+      width: 100%;         
+      height: 100%;          
+      object-fit: contain; 
+      display: block;      
+    }
+
+    /* Marke 2: Bildmarke – helles bg, Icon pur */
+    .brand-preview-2 { background: linear-gradient(135deg, #edf1f7 0%, #dce6f5 100%); }
+
+    /* Marke 3: Farbmarke – die zwei Markenfarben als Flächen */
+    .brand-preview-3 { background: white; }
+
+    .brand-logo-full {
+      display: flex; align-items: center; gap: 14px;
+    }
+
+    .brand-logo-icon-lg {
+      width: 56px; height: 56px;
+      background: #ffffff;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; /* Verhindert, dass das Bild über die Ecken hinausragt */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Optional: Ein ganz zarter Schatten, damit sich das Weiß edel vom Hintergrund abhebt */
+      padding: 6px;
+    }
+    .brand-logo-icon-lg img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Sorgt dafür, dass das Logo proportional skaliert wird und nicht verzerrt */
+      display: block;
+    }
+    .brand-logo-name {
+      font-family: var(--font-head); font-size: 2rem; font-weight: 800;
+      color: white; letter-spacing: -.03em;
+    }
+
+    .brand-icon-only {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, var(--blue), var(--accent));
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand-icon-only svg { width: 46px; height: 46px; fill: white; }
+
+    .color-brand-halves { display: flex; width: 100%; height: 100%; }
+    .color-half-navy { flex: 1; background: var(--navy); display: flex; align-items: flex-end; justify-content: flex-start; padding: 12px; }
+    .color-half-accent { flex: 1; background: var(--accent); display: flex; align-items: flex-end; justify-content: flex-end; padding: 12px; }
+    .color-chip-label { font-size: .65rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.7); font-family: monospace; }
+
+    .brand-info { padding: 24px; }
+    .brand-type-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(45,156,219,.15); border: 1px solid rgba(45,156,219,.25);
+      color: var(--accent); font-size: .68rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 999px; margin-bottom: 12px;
+    }
+    .brand-name { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: white; margin-bottom: 8px; }
+    .brand-desc { font-size: .85rem; color: rgba(255,255,255,.45); line-height: 1.65; font-weight: 300; margin-bottom: 16px; }
+
+    .brand-meta { display: flex; flex-direction: column; gap: 6px; }
+    .brand-meta-row { display: flex; gap: 8px; align-items: flex-start; }
+    .brand-meta-key { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.3); letter-spacing: .06em; text-transform: uppercase; flex-shrink: 0; min-width: 80px; padding-top: 1px; }
+    .brand-meta-val { font-size: .8rem; color: rgba(255,255,255,.55); line-height: 1.5; }
+
+    /* Nizza-Klassen */
+    .nizza-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+    .nizza-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px; padding: 20px 22px;
+    }
+    .nizza-num {
+      font-family: var(--font-head); font-size: 2rem; font-weight: 800;
+      color: var(--accent); line-height: 1; margin-bottom: 8px;
+    }
+    .nizza-title { font-family: var(--font-head); font-size: .9rem; font-weight: 700; color: white; margin-bottom: 6px; }
+    .nizza-desc { font-size: .8rem; color: rgba(255,255,255,.4); line-height: 1.6; font-weight: 300; }
+
+    .about-legal-note {
+      margin-top: 48px; padding: 20px 24px;
+      background: rgba(45,156,219,.08); border: 1px solid rgba(45,156,219,.2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      font-size: .85rem; color: rgba(255,255,255,.45); line-height: 1.75; font-weight: 300;
+    }
+    .about-legal-note strong { color: rgba(255,255,255,.7); }
+
   </style>
 </head>
 <body>
@@ -419,6 +595,8 @@
       </div>
     </div>
   </section>
+  
+  Fehlt Aufgabe 0, 3 (Markenbild 2 einfügen), 4, 5, 6
 
   <!-- ─── FEATURES ─── -->
   <section id="features">
@@ -480,7 +658,6 @@
         <div v-for="(_, i) in showcaseSlides" :key="i" class="sc-dot" :class="{ active: scCurrent === i }" @click="scCurrent = i"></div>
       </div>
     </div>
-    <!--New bis hier-->
 
   </section>
 
@@ -569,35 +746,127 @@
     </div>
   </section>
 
-  <section>
-    <h1>Barrierekeitserklärung</h1>
-    Diese Erklärung zur Barrierfreiheit filt für: https://pooleis1.github.io/Programmieraufgabe/
-    <h1>Stand der Vereinbarkeit mit den Anforderungen</h1>
-    Diese Website ist wegen der folgenden Unvereinbarkeiten teilweise mit der Konformitätsstufe AA der „Richtlinien für barrierefreie Webinhalte – WCAG 2.2“ beziehungsweise mit dem geltenden Europäischen Standard EN 301 549 V3.2.1 (2021-03) nach der Richtlinie (EU) 2016/2102 des Europäischen Parlaments und des Rates vereinbar. 
-    <h1>Erstellung der Erklärung zur Barrierefreiheit</h1>
-    Diese Erklärung wurde am 14.05.2026 erstellt.  Einzelne Seiteninhalte wurden von den Herausgebern bei Veröffentlichung neuer Inhalte geprüft. Diese Erklärung wurde zuletzt am 14.05.2026 aktualisiert.
-    <h1>Feedback und Kontaktangaben</h1>
-     Die Angebote und Services auf dieser Website werden laufend verbessert, ausgetauscht und ausgebaut. Dabei ist uns die Bedienbarkeit und Zugänglichkeit ein großes Anliegen.
-    Wenn Ihnen Barrieren auffallen, die Sie an der Benutzung unserer Website behindern – Probleme, die in dieser Erklärung nicht beschrieben sind, Mängel in Bezug auf die Einhaltung der Barrierefreiheitsanforderungen – so bitten wir Sie, uns diese per E-Mail mitzuteilen.
+   <!-- ABOUT US -->
+    <section id="about">
+      <div class="about-inner">
 
-    Wir werden Ihre Anfrage prüfen und Sie ehestmöglich kontaktieren
-    Sämtliche Mitteilungen und Anregungen senden Sie uns bitte an barrierefreiheit@flexwork.at. Bitte beschreiben Sie das Problem und führen Sie uns die URL(s) der betroffenen Webseite oder des Dokuments an.
-    <h1>Durchsetzungsverfahren</h1>
-    Bei nicht zufriedenstellenden Antworten aus oben genannter Kontaktmöglichkeit können Sie sich mittels Beschwerde an die Österreichische Forschungsförderungsgesellschaft mit beschränkter Haftung (FFG) wenden. Die FFG nimmt über das Kontaktformular Beschwerden auf elektronischem Weg entgegen. 
-    Kontaktformular der Beschwerdestelle
-  </section>
+        <div class="about-header fade-in">
+          <div class="section-label" style="color:rgba(255,255,255,.45);">Über uns</div>
+          <h2 class="section-title">Wer steckt hinter FlexWork+</h2>
+          <p class="section-sub">Wir sind ein kleines, Team, welches durch ihre Diplomarbeit gestartet hat für Flexoffices eine reibunglose Reservierungsplattform zu entwickeln.
+            Unser Ziel ist es für jede Firma und jedes Budget, einfach und in kurzer Zeit ein funktioniertes Produkt zu haben. 
+            Mitarbeiter wissen immer genau wo sie sitzen und es kann nicht zu uneinigkeiten oder ewig langem suchen kommen.</p>
+        </div>
 
-  <section>
-    <h2>Urheberrecht & Bildnachweis</h2>
-    <p><strong>Bilder & Medien:</strong> Alle Bilder wurden selbst erstellt. Lizenz: Eigennutzung / Urheberrecht beim Ersteller.</p>
-    <p><strong>Logo:</strong> Eigenentwurf. Lizenz: Urheberrecht beim Ersteller.</p>
-    
-    <p><strong>Schriftarten:</strong></p>
-    <ul>
-      <li><strong>Syne:</strong> Von Lucas Descroix, bereitgestellt über Google Fonts. Lizenz: SIL Open Font License, 1.1.</li>
-      <li><strong>DM Sans:</strong> Von Colophon Foundry, bereitgestellt über Google Fonts. Lizenz: SIL Open Font License, 1.1.</li>
-    </ul>
-  </section>
+        <!-- MARKEN -->
+        <div class="fade-in">
+          <div class="about-brands-title">
+            Unsere Marken 
+          </div>
+          <p class="about-brands-intro">
+            FlexWork+ schützt seine Identität durch drei eigenständige Markenformen. Jede Form erfüllt einen anderen Zweck und ist auf unterschiedliche Verwendungssituationen ausgerichtet. Alle Marken wurden im EUIPO eSearch / TMview geprüft.
+          </p>
+
+          <div class="brands-grid">
+
+            <!-- MARKE 1: Wortbildmarke -->
+            <div class="brand-card">
+              <div class="brand-preview brand-preview-1">
+                <img src="./src/assets/Logo_Vollversion.png" alt="FlexWork+ Logo">
+              </div>
+              <div class="brand-info">
+                <div class="brand-name">Wortbildmarke</div>
+                <div class="brand-desc">Kombination aus dem grafischen Icon, welcher ein Sessel für ein Office Darstellt und dem Firmennamen FlexWork+</div>
+                <div class="brand-meta">
+                  <div class="brand-meta-row">
+                    <span class="brand-meta-key">Wort</span>
+                    <span class="brand-meta-val">FlexWork+" – Neologismus aus Flex (Flexibles Büro) + Work (Arbeiten) + Plus (Zusätzliche Funktionen). Keine bekannte Kollision in AT/EU.</span>
+                  </div>
+                  <div class="brand-meta-row">
+                    <span class="brand-meta-key">Symbol</span>
+                    <span class="brand-meta-val">Ein Sessel, welches für ein Office steht. Das ganze ist ein Eigenentwurf.</span>
+                  </div>
+                  <div class="brand-meta-row">
+                    <span class="brand-meta-key">Farben</span>
+                    <span class="brand-meta-val">Indigo #293070 + Petrol #007694, eigenständige Kombination, kein Konflikt mit bekannten Marken.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MARKE 2: Bildmarke -->
+            <div class="brand-card">
+              <div class="brand-preview brand-preview-2">
+                <div class="brand-icon-only">
+                </div>
+              </div>
+              <div class="brand-info">
+                <div class="brand-name">Bildmarke</div>
+                <div class="brand-desc">Das reine Icon ohne Schriftzug. Für Favicon, App-Icon, wiedererkennbar ohne Text.</div>
+                <div class="brand-meta">
+                  <div class="brand-meta-row">
+                    <span class="brand-meta-key">Form</span>
+                    <span class="brand-meta-val">Ein F welches auf einem Sessel sitzt. Eigenentwurf.</span>
+                  </div>
+                  <div class="brand-meta-row">
+                    <span class="brand-meta-key">Eigenart</span>
+                    <span class="brand-meta-val">Das Icon ist ein eigenständiges Design, das sowohl funktional als auch visuell ansprechend ist.</span>
+                  </div>
+                  <div class="brand-meta-row">
+                    <span class="brand-meta-key">Kollision</span>
+                    <span class="brand-meta-val">Geprüft in EUIPO eSearch & TMview, kein identisches Zeichen in Kl. 42 gefunden.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MARKE 3: Farbmarke -->
+            <div class="brand-card">
+              <div class="brand-preview brand-preview-3">
+                <div class="color-brand-halves">
+                  <div class="color-half-navy">
+                    <span class="color-chip-label">#293070</span>
+                  </div>
+                  <div class="color-half-accent">
+                    <span class="color-chip-label">#007694</span>
+                  </div>
+                </div>
+              </div>
+              <div class="brand-info">
+                <div class="brand-name">Farbmarke</div>
+                <div class="brand-desc">Die definierte Zweifarbkombination Indigo + Petrol als eigenständige Markenform. Schafft sofortigen Wiedererkennungswert ohne Form oder Text.</div>
+                <div class="brand-meta">
+                  <div class="brand-meta-row">
+                    <span class="brand-meta-key">Farbe 1</span>
+                    <span class="brand-meta-val">Indigo #293070 – Symbolisiert Seriosität, Tiefe und Verlässlichkeit. Schafft als Grundton ein Fundament. Im Markenumfeld barrierefrei und eigenständig.</span>
+                  </div>
+                  <div class="brand-meta-row">
+                    <span class="brand-meta-key">Farbe 2</span>
+                    <span class="brand-meta-val">Petrol #007694 – Technologie, Klarheit, Modernität. Als Kontrast zu Indigo lenkt er die Aufmerksamkeit gezielt auf Interaktionen, ohne das Auge zu überreizen.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Nizza-Klassen -->
+          <div class="about-brands-title" style="margin-top:56px;">
+            Nizza-Klassifikation
+          </div>
+
+          <div class="nizza-grid">
+            <div class="nizza-card" v-for="n in nizzaKlassen" :key="n.num">
+              <div class="nizza-num">Klasse {{ n.num }}</div>
+              <div class="nizza-title">{{ n.title }}</div>
+              <div class="nizza-desc">{{ n.desc }}</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
 
   <footer-component></footer-component>
 
@@ -758,10 +1027,22 @@ const app = createApp({
       }
     ];
 
+    const values = [
+      { title: 'Einfachheit zuerst', text: 'Kein Feature ist gut genug, wenn es kompliziert ist. Wir bauen für Menschen, nicht für IT-Abteilungen.', icon: '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>' },
+      { title: 'Ehrliche Preise', text: 'Kein verstecktes Pricing, kein Lock-in. Was wir anbieten, kostet was es kostet – transparent und nachvollziehbar.', icon: '<svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>' },
+      { title: 'Partnerschaft, kein Produkt', text: 'Wir hören zu, passen an und wachsen mit euch. Kein Ticket-System, ein echter Ansprechpartner.', icon: '<svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>' },
+    ];
+
+    const nizzaKlassen = [
+      { num: '42', title: 'SaaS', desc: 'Bereitstellung von Webanwendungen zur Sitzplatzverwaltung; Software-as-a-Service; Programmierung und Wartung von Software' },
+      { num: '38', title: 'Telekommunikation & Datendienste', desc: 'Bereitstellung des Zugangs zu Computernetzwerken; elektronische Übermittlung von Buchungs- und Reservierungsdaten.' },
+    ];
+
+
     return {
       isScrolled, menuOpen, scCurrent, scNext, scPrev, showcaseSlides,
       form, formSent, submitForm,
-      features, plans
+      features, plans, values, nizzaKlassen
     };
   }
 });
