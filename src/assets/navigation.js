@@ -19,19 +19,19 @@ const NavigationComponent = {
         <li><a href="">Impressum</a></li>
         </ul>
 
-        <button class="burger" :class="{ open: menuOpen }" @click="menuOpen = !menuOpen" aria-label="Menü">
+        <button class="burger" :class="{ open: menuOpen }" @click="$emit('toggle-menu')" aria-label="Menü">
         <span></span><span></span><span></span>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" :class="{ open: menuOpen }">
-        <a href="#features"  @click="menuOpen=false">Funktionen</a>
-        <a href="#bsp"       @click="menuOpen=false">Beispiele</a>
-        <a href="#pricing"   @click="menuOpen=false">Preise</a>
-        <a href="#contact"   @click="menuOpen=false">Kontakt</a>
-        <a href="" @click="menuOpen=false">Barrierekeitserklärung</a>
-        <a href="" @click="menuOpen=false">Urherberrechtshinweise</a>
+        <a href="index.html#features" @click="$emit('toggle-menu')">Funktionen</a>
+        <a href="index.html#bsp"       @click="$emit('toggle-menu')">Beispiele</a>
+        <a href="index.html#pricing"   @click="$emit('toggle-menu')">Preise</a>
+        <a href="index.html#contact"   @click="$emit('toggle-menu')">Kontakt</a>
+        <a href="#barrierekeitserklärung" @click="$emit('toggle-menu')">Barrierekeitserklärung</a>
+        <a href="#urheberrechtshinweise" @click="$emit('toggle-menu')">Urheberrechtshinweise</a>
         <a href="" @click="menuOpen=false">Lizenz</a>
         <a href="" @click="menuOpen=false">Datenschutzerklärung</a>
         <a href="" @click="menuOpen=false">Impressum</a>

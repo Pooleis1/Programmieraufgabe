@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum – FlexWork+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/assets/style.css" />
+  <style>
+    /* HERO */
+    .page-hero {
+      padding-top: calc(var(--nav-h) + 40px);
+      padding-bottom: 40px;
+      background: var(--navy);
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 80% 50%, rgba(45,156,219,.15) 0%, transparent 60%);
+    }
+    .page-hero-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(45,156,219,.15); border: 1px solid rgba(45,156,219,.3); color: var(--accent); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; margin-bottom: 16px; }
+    .page-title { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: white; letter-spacing: -.025em; line-height: 1.1; }
+    .page-sub { margin-top: 12px; font-size: 1rem; color: rgba(255,255,255,.5); font-weight: 300; }
+
+    /* CONTENT */
+    .page-content { max-width: 800px; margin: 0 auto; padding: 64px 48px 96px; }
+
+    .section-block { margin-bottom: 48px; }
+    .section-block:last-child { margin-bottom: 0; }
+
+    h2 {
+      font-family: var(--font-head); font-size: 1.1rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 14px;
+      padding-bottom: 10px; border-bottom: 2px solid var(--gray100);
+      display: flex; align-items: center; gap: 10px;
+    }
+    h2 svg { width: 18px; height: 18px; fill: var(--accent); flex-shrink: 0; }
+
+    p { font-size: .95rem; line-height: 1.8; color: var(--gray700); font-weight: 300; margin-bottom: 10px; }
+    p:last-child { margin-bottom: 0; }
+    strong { font-weight: 500; color: var(--navy); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .info-box {
+      background: var(--gray50); border: 1px solid var(--gray100);
+      border-radius: 12px; padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+    .info-box p { margin-bottom: 6px; }
+
+    .highlight-box {
+      background: var(--sky); border: 1px solid rgba(45,156,219,.2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px; margin-top: 16px;
+      font-size: .875rem; color: var(--gray700); line-height: 1.7; font-weight: 300;
+    }
+
+    @media (max-width: 768px) {
+      .page-hero {padding: calc(var(--nav-h) + 20px) 24px 40px 24px !important; }
+      .page-content { padding: 40px 24px 64px; }
+    }
+  </style>
+</head>
+<body id="app">
+  <!-- ─── NAVIGATION ─── -->
+  <navigation-component
+    :is-scrolled="isScrolled" 
+    :menu-open="menuOpen"
+    @toggle-menu="menuOpen = !menuOpen">
+  </navigation-component>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <h1 class="page-title">Impressum</h1>
+      <p class="page-sub">Angaben gemäß § 5 ECG (Österreich)</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+
+    <div class="section-block">
+      <h2>
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        Angaben zum Unternehmen
+      </h2>
+      <div class="info-box">
+        <p><strong>Firmenname:</strong> [FIRMENNAME] e.U. / GmbH</p>
+        <p><strong>Rechtsform:</strong> [Rechtsform eintragen]</p>
+        <p><strong>Inhaberin / Geschäftsführer:</strong> [Vorname Nachname]</p>
+        <p><strong>Unternehmensgegenstand:</strong> Entwicklung und Vertrieb von Software für Sitzplatzreservierungen (Flex Office Management)</p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Adresse
+      </h2>
+      <div class="info-box">
+        <p><strong>Straße & Hausnummer:</strong> [Straße Nr.]</p>
+        <p><strong>PLZ & Ort:</strong> [PLZ] [Ort]</p>
+        <p><strong>Land:</strong> Österreich</p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        Kontakt
+      </h2>
+      <div class="info-box">
+        <p><strong>Telefon:</strong> <a href="tel:+43XXXXXXXXX">+43 X XXX XX XX</a></p>
+        <p><strong>E-Mail:</strong> <a href="mailto:office@deskflow.at">office@deskflow.at</a></p>
+        <p><strong>Website:</strong> <a href="https://www.deskflow.at">www.deskflow.at</a></p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Behörden & Register
+      </h2>
+      <div class="info-box">
+        <p><strong>Firmenbuchnummer:</strong> [FN XXXXXX x]</p>
+        <p><strong>Firmenbuchgericht:</strong> Handelsgericht [Ort]</p>
+        <p><strong>UID-Nummer:</strong> ATU[XXXXXXXX]</p>
+        <p><strong>Mitglied der WKO:</strong> Wirtschaftskammer [Bundesland], Fachgruppe Unternehmensberatung und IT</p>
+        <p><strong>Aufsichtsbehörde:</strong> Bezirkshauptmannschaft / Magistrat [Ort]</p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+        Anwendbare Rechtsvorschriften
+      </h2>
+      <p>Die Tätigkeit unterliegt den allgemeinen gesetzlichen Bestimmungen, insbesondere der Gewerbeordnung (GewO 1994) sowie dem E-Commerce-Gesetz (ECG).</p>
+      <div class="highlight-box">
+        Berufsrechtliche Regelungen sind einsehbar unter: <a href="https://www.ris.bka.gv.at" target="_blank">www.ris.bka.gv.at</a> (Rechtsinformationssystem des Bundes)
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+        Haftungsausschluss
+      </h2>
+      <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 ECG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+      <p>Für Inhalte verlinkter externer Seiten sind ausschließlich deren Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Bei Bekanntwerden von Rechtsverletzungen werden derartige Links umgehend entfernt.</p>
+    </div>
+
+  </div>
+  
+  <!--<footer>
+    <div class="footer-copy">© 2026 FlexWork+ · Alle Rechte vorbehalten</div>
+    <div class="footer-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="barrierefreiheit.html">Barrierefreiheit</a>
+      <a href="urheberrecht.html">Urheberrecht</a>
+      <a href="lizenz.html">Lizenz</a>
+    </div>
+  </footer>-->
+  <footer-component></footer-component>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="./src/assets/navigation.js"></script>
+<script src="./src/assets/footer.js"></script>
+<script src="./src/assets/main.js"></script>
+<script>
+const { createApp, ref, onMounted, onUnmounted } = Vue;
+
+const app = createApp({
+  setup() {
+    // Hier holen wir uns NUR die Navigations-Logik aus der main.js
+    const { isScrolled, menuOpen } = useNavigation();
+
+    // Wir brauchen kein onMounted oder onUnmounted für den Slider hier!
+    return {
+      isScrolled, 
+      menuOpen
+    };
+  }
+});
+app.component('navigation-component', NavigationComponent);
+app.component('footer-component', FooterComponent);
+app.mount('#app');
+</script>
+
+</body>
+</html>

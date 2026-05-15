@@ -110,3 +110,21 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(10,22,40,.08); }
     border-bottom: 1px solid var(--gray100);
 }
 .mobile-menu a:last-child { border: none; }
+
+/* FOOTER */
+footer {
+    background: var(--navy); padding: 36px 48px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.footer-copy { font-size: .8rem; color: rgba(255,255,255,.3); }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { font-size: .8rem; color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; }
+.footer-links a:hover { color: var(--accent); }
+
+@media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .burger { display: flex; }
+
+    footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
+}

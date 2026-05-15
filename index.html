@@ -346,18 +346,6 @@
     .form-group textarea { resize: vertical; min-height: 110px; }
     .form-submit { width: 100%; margin-top: 8px; padding: 15px; font-size: 1rem; }
 
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--navy);
-      padding: 48px;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 20px;
-    }
-    .footer-copy { font-size: .85rem; color: rgba(255,255,255,.8); }
-    .footer-links { display: flex; gap: 28px; }
-    .footer-links a { font-size: .85rem; color: rgba(255,255,255,.8); text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: var(--accent); }
-
     /* ─── UTILS ─── */
     .max-w { max-width: 1200px; margin: 0 auto; }
 
@@ -370,24 +358,20 @@
     }
 
     @media (max-width: 768px) {
-      nav { padding: 0 24px; }
+      /*nav { padding: 0 24px; }
       .nav-links { display: none; }
-      .burger { display: flex; }
+      .burger { display: flex; }*/
 
       .hero-slider-wrap { display: none; }
       .hero-inner { padding: 60px 24px 48px; max-width: 100%; }
 
       #features, #pricing, #how, #support, #contact { padding: 80px 24px; }
-      footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
+      /* footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; } */
 
       .form-row { grid-template-columns: 1fr; }
       .contact-form { padding: 32px 24px; }
 
       .steps-grid::before { display: none; }
-
-      .stats-row { flex-direction: column; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--gray100); }
-      .stat-item:last-child { border-bottom: none; }
 
       .slider-dots { left: 24px; }
     }
@@ -615,21 +599,12 @@
     </ul>
   </section>
 
-  <!-- ─── FOOTER ─── -->
-  <footer>
-    <div class="logo" style="text-decoration:none;">
-    </div>
-    <div class="footer-copy">© 2026 FlexWork+ · Alle Rechte vorbehalten</div>
-    <div class="footer-links">
-      <a href="impressum.html">Impressum</a>
-      <a href="#">Datenschutz</a>
-      <a href="#">AGB</a>
-    </div>
-  </footer>
+  <footer-component></footer-component>
 
 </div>
 
 <script src="./src/assets/navigation.js"></script>
+<script src="./src/assets/footer.js"></script>
 <script src="./src/assets/main.js"></script>
 <script>
 const { createApp, ref, onMounted, onUnmounted } = Vue;
@@ -676,15 +651,6 @@ const app = createApp({
       formSent.value = true;
     };
 
-    /* Showcase-Slides
-       bg:        CSS-Klasse für Platzhalter-Gradient → später durch echtes Bild ersetzen
-       icon:      großes Icon im Hintergrund des Platzhalters
-       tag:       kleines Label über dem Titel
-       title:     Überschrift in der Info-Leiste
-       desc:      kurze Beschreibung
-       stat:      große Zahl im Badge rechts
-       statLabel: Label unter der Zahl
-    */
     const showcaseSlides = [
       {
         bg: 'sc-bg-1',
@@ -800,6 +766,7 @@ const app = createApp({
   }
 });
 app.component('navigation-component', NavigationComponent);
+app.component('footer-component', FooterComponent);
 app.mount('#app');
 </script>
 </body>
