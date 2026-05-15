@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barrierefreiheitserklärung – FlexWork+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/assets/style.css" />
+  <style>
+    
+    .page-hero { padding-top: calc(var(--nav-h) + 40px); padding-bottom: 40px; background: var(--navy); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 50%, rgba(45,156,219,.15) 0%, transparent 60%); }
+    .page-hero-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-title { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: white; letter-spacing: -.025em; line-height: 1.1; }
+    .page-sub { margin-top: 12px; font-size: 1rem; color: rgba(255,255,255,.5); font-weight: 300; }
+
+    .page-content { max-width: 800px; margin: 0 auto; padding: 64px 48px 96px; }
+    .section-block { margin-bottom: 52px; }
+    .section-block:last-child { margin-bottom: 0; }
+
+    h2 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--gray100); display: flex; align-items: center; gap: 10px; }
+    h2 svg { width: 18px; height: 18px; fill: var(--accent); flex-shrink: 0; }
+    p { font-size: .95rem; line-height: 1.8; color: var(--gray700); font-weight: 300; margin-bottom: 10px; }
+    p:last-child { margin-bottom: 0; }
+    strong { font-weight: 500; color: var(--navy); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { padding-left: 20px; margin-bottom: 10px; }
+    ul li { font-size: .95rem; line-height: 1.8; color: var(--gray700); font-weight: 300; margin-bottom: 4px; }
+
+    /* Status-Banner */
+    .status-banner {
+      border-radius: 14px; padding: 24px 28px; margin-bottom: 32px;
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .status-banner.partial { background: var(--orange-bg); border: 1px solid var(--orange-border); }
+    .status-banner svg { width: 24px; height: 24px; flex-shrink: 0; margin-top: 1px; }
+    .status-banner.partial svg { fill: var(--orange); }
+    .status-banner-text h3 { font-family: var(--font-head); font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .status-banner-text p { font-size: .875rem; color: var(--gray700); margin-bottom: 0; }
+
+    /* Criteria grid */
+    .criteria-grid { display: flex; flex-direction: column; gap: 10px; }
+    .criterion { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--gray100); }
+    .criterion.ok { background: var(--green-bg); border-color: var(--green-border); }
+    .criterion.warn { background: var(--orange-bg); border-color: var(--orange-border); }
+    .criterion.na { background: var(--gray50); border-color: var(--gray100); }
+    .crit-icon { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .crit-icon.ok { background: #dcfce7; }
+    .crit-icon.ok svg { fill: var(--green); width: 12px; height: 12px; }
+    .crit-icon.warn { background: var(--orange-bg); border: 1px solid var(--orange-border); }
+    .crit-icon.warn svg { fill: var(--orange); width: 12px; height: 12px; }
+    .crit-icon.na { background: var(--gray100); }
+    .crit-icon.na svg { fill: var(--gray400); width: 12px; height: 12px; }
+    .crit-text h4 { font-family: var(--font-head); font-size: .875rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .crit-text p { font-size: .82rem; color: var(--gray700); line-height: 1.5; margin-bottom: 0; font-weight: 300; }
+
+    .info-box { background: var(--gray50); border: 1px solid var(--gray100); border-radius: 12px; padding: 24px 28px; }
+    .info-box p { margin-bottom: 6px; }
+    .highlight-box { background: var(--sky); border: 1px solid rgba(45,156,219,.2); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-top: 16px; font-size: .875rem; color: var(--gray700); line-height: 1.7; font-weight: 300; }
+
+    footer { background: var(--navy); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-copy { font-size: .8rem; color: rgba(255,255,255,.3); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: .8rem; color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      .page-hero {padding: calc(var(--nav-h) + 20px) 24px 40px 24px !important; }
+      .page-content { padding: 36px 24px 64px; }
+    }
+  </style>
+</head>
+<body id="app">
+
+  <!-- ─── NAVIGATION ─── -->
+  <navigation-component
+    :is-scrolled="isScrolled" 
+    :menu-open="menuOpen"
+    @toggle-menu="menuOpen = !menuOpen">
+  </navigation-component>
+  
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <h1 class="page-title">Barrierefreiheitserklärung</h1>
+      <p class="page-sub">Gemäß Web Content Accessibility Guidelines (WCAG) 2.2</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+
+    <div class="section-block">
+      <p>Diese Erklärung gilt für: <strong>https://pooleis1.github.io/Programmieraufgabe/</strong></p>
+    </div>
+
+    <div class="section-block">
+      <h2>
+        Stand der Vereinbarkeit mit den Anforderungen
+      </h2>
+      Diese Website ist wegen der folgenden Unvereinbarkeiten teilweise mit der Konformitätsstufe AA der „Richtlinien für barrierefreie Webinhalte – WCAG 2.2“ beziehungsweise mit dem geltenden Europäischen Standard EN 301 549 V3.2.1 (2021-03) nach der Richtlinie (EU) 2016/2102 des Europäischen Parlaments und des Rates vereinbar.
+    </div>
+
+    <div class="section-block">
+      <h2>
+        Erstellung der Erklärung zur Barrierefreiheit
+      </h2>
+      <div class="info-box">
+        <p>Diese Erklärung wurde am <strong>15.05.2026</strong> erstellt. Einzelne Seiteninhalte wurden von den Herausgebern bei Veröffentlichung neuer Inhalte geprüft. Diese Erklärung wurde zuletzt am <strong>14.05.2026</strong> aktualisiert.</p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>
+        Feedback und Kontaktangaben
+      </h2>
+      <p>Die Angebote und Services auf dieser Website werden laufend verbessert, ausgetauscht und ausgebaut. 
+        Dabei ist uns die Bedienbarkeit und Zugänglichkeit ein großes Anliegen. Wenn Ihnen Barrieren auffallen, 
+        die Sie an der Benutzung unserer Website behindern – Probleme, die in dieser Erklärung nicht beschrieben 
+        sind, Mängel in Bezug auf die Einhaltung der Barrierefreiheitsanforderungen – so bitten wir Sie, uns diese per E-Mail mitzuteilen. 
+        Wir werden Ihre Anfrage prüfen und Sie ehestmöglich kontaktieren Sämtliche Mitteilungen und Anregungen senden Sie uns 
+        bitte an <strong>barrierefreiheit@flexwork.at</strong>. Bitte beschreiben Sie das Problem und führen Sie uns die URL(s) der betroffenen Webseite 
+        oder des Dokuments an.</p>
+      <div class="highlight-box">
+        <strong>Durchsetzungsverfahren</strong> <br>
+        Bei nicht zufriedenstellenden Antworten aus oben genannter Kontaktmöglichkeit können Sie sich mittels Beschwerde an die Österreichische Forschungsförderungsgesellschaft mit beschränkter Haftung (FFG) wenden. Die FFG nimmt über das Kontaktformular Beschwerden auf elektronischem Weg entgegen. <a href="https://www.digitalbarrierefrei.at/de/beschwerdestelle/kontaktformular-beschwerdestelle" target="_blank">Kontaktformular der Beschwerdestelle</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer-component></footer-component>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="./src/assets/navigation.js"></script>
+<script src="./src/assets/footer.js"></script>
+<script src="./src/assets/main.js"></script>
+<script>
+const { createApp, ref, onMounted, onUnmounted } = Vue;
+
+const app = createApp({
+  setup() {
+    // Hier holen wir uns NUR die Navigations-Logik aus der main.js
+    const { isScrolled, menuOpen } = useNavigation();
+
+    // Wir brauchen kein onMounted oder onUnmounted für den Slider hier!
+    return {
+      isScrolled, 
+      menuOpen
+    };
+  }
+});
+app.component('navigation-component', NavigationComponent);
+app.component('footer-component', FooterComponent);
+app.mount('#app');
+</script>
+
+</body>
+</html>
