@@ -363,8 +363,6 @@
 
 </div>
 
-
-
 <footer-component></footer-component>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -376,20 +374,20 @@ const { createApp, ref, onMounted, onUnmounted } = Vue;
 
 const app = createApp({
   setup() {
-    // Hier holen wir uns NUR die Navigations-Logik aus der main.js
+  // Hier holen wir uns NUR die Navigations-Logik aus der main.js
     const { isScrolled, menuOpen } = useNavigation();
-
+      
     // Wir brauchen kein onMounted oder onUnmounted für den Slider hier!
     return {
       isScrolled, 
-      menuOpen
+        menuOpen
     };
   }
 });
 app.component('navigation-component', NavigationComponent);
 app.component('footer-component', FooterComponent);
 app.mount('#app');
-</script>
+</script>>
 
 </body>
 </html>

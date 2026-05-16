@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutzerklärung – DeskFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/assets/style.css">
+  <style>
+    .page-hero { padding-top: calc(var(--nav-h) + 40px); padding-bottom: 40px; background: var(--navy); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 50%, rgba(45,156,219,.15) 0%, transparent 60%); }
+    .page-hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-tag { display: inline-flex; align-items: center; background: rgba(45,156,219,.15); border: 1px solid rgba(45,156,219,.3); color: var(--accent); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; margin-bottom: 16px; }
+    .page-title { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: white; letter-spacing: -.025em; line-height: 1.1; }
+    .page-sub { margin-top: 12px; font-size: 1rem; color: rgba(255,255,255,.5); font-weight: 300; max-width: 640px; }
+    .update-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(45,156,219,.1); border: 1px solid rgba(45,156,219,.2); color: var(--accent); font-size: .75rem; font-weight: 500; padding: 4px 10px; border-radius: 6px; margin-top: 12px; }
+
+    .toc-wrap { max-width: 900px; margin: 0 auto; padding: 32px 48px 0; }
+    .toc { background: var(--gray50); border: 1px solid var(--gray100); border-radius: 12px; padding: 24px 28px; }
+    .toc-title { font-family: var(--font-head); font-size: .82rem; font-weight: 700; color: var(--navy); margin-bottom: 14px; text-transform: uppercase; letter-spacing: .07em; }
+    .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 32px; }
+    .toc-grid a { font-size: .875rem; color: var(--accent); text-decoration: none; padding: 3px 0; display: block; }
+    .toc-grid a:hover { text-decoration: underline; }
+
+    .page-content { max-width: 900px; margin: 0 auto; padding: 52px 48px 96px; }
+    .section-block { margin-bottom: 56px; scroll-margin-top: 90px; }
+    .section-block:last-child { margin-bottom: 0; }
+
+    h2 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--gray100); display: flex; align-items: center; gap: 10px; }
+    h2 svg { width: 18px; height: 18px; fill: var(--accent); flex-shrink: 0; }
+    h3 { font-family: var(--font-head); font-size: .95rem; font-weight: 700; color: var(--navy); margin: 22px 0 10px; }
+    p { font-size: .95rem; line-height: 1.85; color: var(--gray700); font-weight: 300; margin-bottom: 10px; }
+    p:last-child { margin-bottom: 0; }
+    strong { font-weight: 500; color: var(--navy); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul, ol { padding-left: 22px; margin-bottom: 12px; }
+    ul li, ol li { font-size: .95rem; line-height: 1.8; color: var(--gray700); font-weight: 300; margin-bottom: 5px; }
+
+    .info-box { background: var(--gray50); border: 1px solid var(--gray100); border-radius: 12px; padding: 24px 28px; }
+    .info-box p { margin-bottom: 6px; }
+    .highlight-box { background: var(--sky); border: 1px solid rgba(45,156,219,.2); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-top: 16px; font-size: .875rem; color: var(--gray700); line-height: 1.75; font-weight: 300; }
+    .mock-badge { display: inline-flex; align-items: center; gap: 5px; background: var(--orange-bg); border: 1px solid var(--orange-border); color: var(--orange); font-size: .7rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
+
+    /* Verarbeitungs-Tabelle */
+    .proc-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+    .proc-table thead tr { background: var(--navy); }
+    .proc-table thead th { padding: 11px 14px; text-align: left; font-family: var(--font-head); font-size: .72rem; font-weight: 700; color: white; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+    .proc-table thead th:first-child { border-radius: 10px 0 0 0; }
+    .proc-table thead th:last-child { border-radius: 0 10px 0 0; }
+    .proc-table tbody tr { border-bottom: 1px solid var(--gray100); transition: background .15s; }
+    .proc-table tbody tr:last-child { border-bottom: none; }
+    .proc-table tbody tr:hover { background: var(--gray50); }
+    .proc-table td { padding: 12px 14px; vertical-align: top; line-height: 1.55; color: var(--gray700); font-weight: 300; font-size: .875rem; }
+    .proc-table td:first-child { font-weight: 500; color: var(--navy); white-space: nowrap; }
+    .proc-wrap { border: 1px solid var(--gray100); border-radius: 12px; overflow: hidden; overflow-x: auto; }
+    .art-badge { display: inline-block; font-size: .68rem; font-weight: 600; background: var(--sky); color: var(--blue); border: 1px solid rgba(45,156,219,.2); padding: 1px 6px; border-radius: 4px; font-family: monospace; white-space: nowrap; }
+
+    /* Rechte-Grid */
+    .rights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .right-card { background: var(--gray50); border: 1px solid var(--gray100); border-radius: 10px; padding: 18px 20px; }
+    .right-card h4 { font-family: var(--font-head); font-size: .85rem; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+    .right-card p { font-size: .875rem; margin: 0; }
+
+    /* Cookie-Tabelle */
+    .cookie-row { display: flex; gap: 0; border-bottom: 1px solid var(--gray100); }
+    .cookie-row:last-child { border-bottom: none; }
+    .cookie-name { width: 160px; flex-shrink: 0; padding: 12px 14px; font-weight: 500; color: var(--navy); font-size: .875rem; font-family: monospace; }
+    .cookie-type { width: 100px; flex-shrink: 0; padding: 12px 8px; }
+    .cookie-desc { flex: 1; padding: 12px 14px; font-size: .875rem; color: var(--gray700); font-weight: 300; line-height: 1.55; }
+    .cookie-dur { width: 100px; flex-shrink: 0; padding: 12px 8px; font-size: .8rem; color: var(--gray400); }
+    .badge-tech { background: #ede9fe; color: #7c3aed; border: 1px solid #ddd6fe; font-size: .68rem; font-weight: 600; padding: 2px 7px; border-radius: 999px; }
+    .badge-func { background: var(--sky); color: var(--blue); border: 1px solid rgba(45,156,219,.2); font-size: .68rem; font-weight: 600; padding: 2px 7px; border-radius: 999px; }
+    .cookie-header-row { display: flex; gap: 0; background: var(--navy); border-radius: 10px 10px 0 0; }
+    .cookie-header-row span { padding: 10px 14px; font-family: var(--font-head); font-size: .7rem; font-weight: 700; color: rgba(255,255,255,.7); letter-spacing: .06em; text-transform: uppercase; }
+    .cookie-header-row span:first-child { width: 160px; flex-shrink: 0; }
+    .cookie-header-row span:nth-child(2) { width: 100px; flex-shrink: 0; }
+    .cookie-header-row span:nth-child(3) { flex: 1; }
+    .cookie-header-row span:last-child { width: 100px; flex-shrink: 0; }
+    .cookie-wrap { border: 1px solid var(--gray100); border-radius: 12px; overflow: hidden; overflow-x: auto; }
+
+    @media (max-width: 768px) {
+      .page-hero {padding: calc(var(--nav-h) + 20px) 24px 40px 24px !important; }
+      .toc-wrap { padding: 24px 24px 0; }
+      .toc-grid { grid-template-columns: 1fr; }
+      .page-content { padding: 36px 24px 64px; }
+      .rights-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body id="app">
+
+<!-- ─── NAVIGATION ─── -->
+<navigation-component
+  :is-scrolled="isScrolled" 
+  :menu-open="menuOpen"
+  @toggle-menu="menuOpen = !menuOpen">
+</navigation-component>
+
+<div class="page-hero">
+    <h1 class="page-title">Datenschutzerklärung</h1>
+    <p class="page-sub">Gemäß Art. 13 & 14 DSGVO (EU) 2016/679 sowie dem österreichischen Datenschutzgesetz (DSG 2018). Diese Erklärung gilt für die Website https://pooleis1.github.io/Programmieraufgabe/index.html und alle damit verbundenen Dienste.</p>
+  </div>
+</div>
+
+<div class="page-content">
+
+  <!-- § 1 -->
+  <div class="section-block" id="verantwortlicher">
+    <h2>Verantwortlicher
+    </h2>
+    <div class="info-box">
+      <p>FlexWork+ · Karlsgasse 13 · 1040 Wien · Österreich</p>
+      <p style="margin-top:8px;"><strong>Datenschutzanfragen:</strong> <a href="mailto:datenschutz@flexwork.at">datenschutz@flexwork.at</a></p>
+      <p><strong>Telefon:</strong> +43 1 23456</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="grundsaetze">
+    <h2>Datenspeicherung und Verarbeitung
+    </h2>
+    <p>Folgende Daten werden, für folgende Zwecke verarbeitet und gespeichert:</p>
+    <ul>
+      <li><strong>Server Logs:</strong> IP-Adresse, Datum und Uhrzeit des Zugriffs, Browser Typ und OS</li>
+        <ul>
+          <li>Diese Daten werden bei jedem Seitenaufruf gespeichert</li>
+          <li><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Betriebssicherheit und Missbrauchsabwehr). Server-Logs werden nach 30 Tagen automatisch gelöscht.</li>
+        </ul>
+      <li><strong>Account Daten:</strong> Name, E-Mail, Passwort, Unternehmensrolle, Teammitglieder, Buchungszeiten, Sitzplatzdaten</li>
+        <ul>
+          <li>Diese Daten sind zwingend erforderlich, damit die Plattform nutzbar ist und Sitzplätze Buchbar
+          <li><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Erfüllung des Lizenzvertrages). Ohne die Verarbeitung dieser Daten ist die Bereitstellung und Nutzung unserer Sitzplatzverwaltung technisch nicht möglich. Diese Daten bleiben für die gesamte Dauer des Abos gespeichert und werden nach Vertragsbeendigung gelöscht (ausgenommen gesetzliche Aufbewahrungspflichten für Rechnungen)</li>
+        </ul>
+      </li>
+      <li><strong>Kundendaten:</strong> Firmenname, Vor- und Nachname, E-Mail Adresse und Telefonnummer der Ansprechpersonen beim Kunden</li>
+      <ul>
+        <li>Diese Daten werden für die allgemeine Kommunikation, Account-Aktivierungen und die Betreuung genutzt</li>
+        <li><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung und vorvertragliche Maßnahmen).</li>
+      </ul>
+    <li><strong>Rechnungsdaten:</strong> Firmenname, Rechnungsadresse, UID-Nummer und Bankdaten</li>
+      <ul>
+        <li>Diese Daten benötigen wir für die korrekte Abrechnung</li>
+        <li><strong>Rechtsgrundlage & Aufbewahrung:</strong> Art. 6 Abs. 1 lit. b & c DSGVO. Rechnungen und steuerlich relevante Geschäftsunterlagen unterliegen der gesetzlichen 7-jährigen Aufbewahrungspflicht in Österreich gemäß § 212 UGB und § 132 BAO und dürfen vorher nicht gelöscht werden.</li>
+      </ul>
+    </ul>
+    
+  </div>
+
+
+  <!-- § 3 -->
+  <div class="section-block" id="kontaktformular">
+    <h3>Kontaktformular
+    </h3>
+    <p>Durch das Kontaktformular, werden folgende Daten gespeicher:</p>
+    <div class="proc-wrap" style="margin-bottom:16px;">
+      <table class="proc-table">
+        <thead><tr><th>Datenkategorie</th><th>Zweck</th></tr></thead>
+        <tbody>
+          <tr><td>Vor- &amp; Nachname</td><td>Persönliche Ansprache, Angebotserstellung</td></tr>
+          <tr><td>E-Mail-Adresse</td><td>Rückmeldung zur Anfrage</td></tr>
+          <tr><td>Firmenname</td><td>Zuordnung, Angebotserstellung</td></tr>
+          <tr><td>Mitarbeiteranzahl</td><td>Passende Paketkonfiguration</td></tr>
+          <tr><td>Paketinteresse</td><td>Gezieltes Angebot</td></tr>
+          <tr><td>Freitext / Nachricht</td><td>Individuelle Anfragebeantwortung</td></tr>
+          <tr><td>Zeitstempel der Anfrage</td><td>Dokumentation, Nachweisbarkeit</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen)</p>
+    <p><strong>Speicherdauer:</strong> Wir behalten diese Daten in der Regel für 1 Jahr. Kommt danach ein Vertrag zustande, gehen die Daten in unsere reguläre Kundenverwaltung über</p>
+
+    <p>Die Übermittlung erfolgt verschlüsselt. Weitergabe an Dritte findet nicht statt, außer es besteht eine gesetzliche Pflicht.</p>
+  </div>
+
+  <!-- § 6 -->
+  <div class="section-block" id="cookies">
+    <h3>Cookies
+    </h3>
+    <p>Unsere Website verwendet Cookies:</p>
+
+    <div class="cookie-wrap" style="margin-top:12px;">
+      <div class="cookie-header-row">
+        <span>Name / Kennung</span>
+        <span>Typ</span>
+        <span>Beschreibung</span>
+        <span>Laufzeit</span>
+      </div>
+      <div class="cookie-row">
+        <div class="cookie-name">session_id</div>
+        <div class="cookie-type">Technisch</div>
+        <div class="cookie-desc">Sitzungs-Cookie für eingeloggte Nutzer der FlexWork+ Software. Notwendig für den Betrieb. Kein Tracking.</div>
+        <div class="cookie-dur">Sitzungsende</div>
+      </div>
+      <div class="cookie-row">
+        <div class="cookie-name">csrf_token</div>
+        <div class="cookie-type">Technisch</div>
+        <div class="cookie-desc">Schutz vor Cross-Site-Request-Forgery-Angriffen. Sicherheits-Token für Formulare.</div>
+        <div class="cookie-dur">Sitzungsende</div>
+      </div>
+      <div class="cookie-row">
+        <div class="cookie-name">cookie_consent</div>
+        <div class="cookie-type">Funktional</div>
+        <div class="cookie-desc">Speichert die Cookie-Einwilligung des Nutzers, um das Banner nicht bei jedem Besuch anzuzeigen.</div>
+        <div class="cookie-dur">12 Monate</div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:16px;">
+      <strong>Cookie-Einwilligung:</strong> Technisch notwendige Cookies werden ohne Einwilligung gesetzt (Art. 6 Abs. 1 lit. f DSGVO). Analyse- und Marketing-Cookies werden nur mit ausdrücklicher Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) aktiviert. Sie können Ihre Einwilligung jederzeit widerrufen.
+    </div>
+  </div>
+
+  <div class="section-block" id="analyse">
+    <h3>Nutzungsstatistiken
+    </h3>
+    <p>Im Produktivbetrieb der Applikation werden anonymisierte Nutzungsstatistiken (Anzahl Buchungen, Auslastungsquoten, Login-Frequenz) gespeichert und für die Übersicht verwendet. Personenidentifikation ist nicht möglich.</p>
+  </div>
+
+  <!-- § 9 -->
+  <div class="section-block" id="speicherdauer">
+    <h2>Speicherdauer
+    </h2>
+    <div class="proc-wrap">
+      <table class="proc-table">
+        <thead><tr><th>Datenkategorie</th><th>Speicherdauer</th><th>Begründung</th></tr></thead>
+        <tbody>
+          <tr><td>Kontaktformular</td><td>1 Jahr nach letztem Kontakt</td><td>Nachweisbarkeit, Verjährungsfrist § 1489 ABGB</td></tr>
+          <tr><td>Vertrags- und Rechnungsdaten</td><td>7 Jahre</td><td>§ 212 UGB, § 132 BAO (gesetzl. Pflicht)</td></tr>
+          <tr><td>Server Logs</td><td>30 Tage</td><td>Sicherheit, Missbrauchsabwehr</td></tr>
+          <tr><td>Cookie-Einwilligung</td><td>12 Monate</td><td>Nachweis der Einwilligung, Art. 7 DSGVO</td></tr>
+          <tr><td>Kundendaten (nach Vertragsende)</td><td>30 Tage Export-Frist, dann Löschung</td><td>Beendigung Auftragsverarbeitung Art. 28 DSGVO</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- § 8 -->
+  <div class="section-block" id="drittdienste">
+    <h2>Drittanbieter
+    </h2>
+    <h3>Google Fonts</h3>
+    <p>Diese Website lädt Schriftarten (Syne, DM Sans) über die Google Fonts API von Google LLC. Dabei wird die IP-Adresse des Nutzers an Google-Server (ggf. USA) übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an korrekter Darstellung). Datenschutzerklärung Google: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>.</p>
+    
+    <h3>cdnjs (Cloudflare)</h3>
+    <p>Vue.js wird über das cdnjs-CDN von Cloudflare, Inc. geladen. Dabei kann die IP-Adresse des Nutzers an Cloudflare übermittelt werden. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Datenschutz: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">cloudflare.com/privacypolicy</a>.</p>
+
+    <h3>Website Hosting</h3>
+    <p>Die Website wird über GitLab Pages gehostet. Dabei werden Server-Logs mit IP-Adressen der Besucher durch GitLab verarbeitet. Es besteht ein Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO. Datenschutz: <a href="https://about.gitlab.com/privacy/" target="_blank">about.gitlab.com/privacy</a>.</p>
+  
+    <h3>Software Hosting</h3>
+    <p>Die eigentliche Software und alle damit verbundenen Kundendaten werden hochsicher auf den Servern der Easyname gehostet. Der Serverstandort befindet sich ausschließlich in Östtereich, wodurch europäische Datenschutzstandards garantiert sind.</p>
+  <p>Wir haben einen entsprechenden Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO geschlossen, der sicherstellt, dass Daten nicht für eigene Zwecke des Hosters genutzt oder an Dritte weitergegeben werden. <br>
+  Datenschutz: <a href="https://www.easyname.at/media/373/download/data-protection-policy-de-v4.pdf?v=1&_gl=1*1uwg0ix*_up*MQ..*_ga*MTMwMzcwOTEyMC4xNzc4OTUyNjQ2*_ga_K9FMHTFN1H*czE3Nzg5NTI2NDQkbzEkZzAkdDE3Nzg5NTI2NDQkajYwJGwwJGg2NjAwMTI5NjE." target="_blank">Easyname Datenschutz</a>.</p>
+  </div>
+
+  <!-- § 10 -->
+  <div class="section-block" id="weitergabe">
+    <h2> Weitergabe an Dritte
+    </h2>
+    <p>Eine Weitergabe personenbezogener Daten an Dritte erfolgt grundsätzlich nicht, außer:</p>
+    <ul>
+      <li><strong>Auftragsverarbeiter (Art. 28 DSGVO):</strong> Hosting-Anbieter (GitLab Pages), E-Mail-Dienstleister</li>
+      <li><strong>Steuerberater:</strong> Rechnungsdaten werden an den beauftragten Steuerberater übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. c DSGVO.</li>
+      <li><strong>Gesetzliche Pflicht:</strong> Bei behördlichen Anfragen mit rechtlicher Grundlage (z. B. Strafverfolgung).</li>
+    </ul>
+    <p>Eine Weitergabe zu Werbezwecken oder ein Verkauf von Daten an Dritte findet nicht statt.</p>
+  </div>
+
+  <!-- § 11 -->
+  <div class="section-block" id="rechte">
+    <h2>
+      Betroffenenrechte
+    </h2>
+    <p>Sie haben gegenüber uns folgende Rechte gemäß DSGVO:</p>
+    <ul>
+      <li><strong>Auskunft (Art. 15 DSGVO):</strong> Du hast jederzeit das recht zu erfahren, welche Personenbezogenen Daten wir eigentlich von dir haben.</li>
+      <li><strong>Berichtigung (Art. 16 DSGVO):</strong> Wenn daten falsch oder unvollständig sind, bessern wir das gerne sofort aus.</li>
+      <li><strong>Löschung (Art. 17 DSGVO):</strong> Du kannst verlangen das wir deine Daten löschen, solange keine anderen gesetzte (wie z.B. unsere Aufbewahrungspflicht für Rechnungen) dagegen sprechen.</li>
+      <li><strong>Einschränkung (Art. 18 DSGVO):</strong> Unter bestimmten voraussetzungen kannst du die verarbeitung deiner Daten auch einfach einschränken lassen.</li>
+      <li><strong>Widerspruch (Art. 21 DSGVO):</strong> Du kannst der Verarbeitung auf basis von unserem berechtigtem interesse jederzeit wiedersprechen.</li>
+      <li><strong>Widerruf (Art. 7 Abs. 3 DSGVO):</strong> Falls du uns mal eine einwilligung gegeben hast, kannst du diese natürlich jederzeit ohne Angabe von Gründen wiederufen.</li>
+      <li><strong>Beschwerde (Art. 77 DSGVO):</strong> Wenn du glaubst wir machen irgendwas falsch mit deinen Daten, kannst du dich bei der <a href="https://www.dsb.gv.at" target="_blank">Österreichischen Datenschutzbehörde</a> beschweren (Barichgasse 40-42, 1030 Wien). Wir klären Probleme aber lieber direkt mit dir!</li>
+    </ul>
+    <p style="margin-top:16px;">Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:datenschutz@flexwork.at">datenschutz@flexwork.at</a>. Wir antworten innerhalb von <strong>30 Tagen</strong> (Art. 12 Abs. 3 DSGVO).</p>
+  </div>
+
+  <!-- § 13 -->
+  <div class="section-block" id="aenderungen">
+    <h2>Letzte Änderung der Datenschutzerklärung
+    </h2>
+    <p>Diese Datenschutzerklärung wird bei Änderungen der Rechtslage, unserer Dienste oder der Technik angepasst.</p>
+    <div class="info-box" style="margin-top:16px;">
+      <p><strong>Aktuelle Version:</strong> 1.0 (16.05.2026)</p>
+    </div>
+  </div>
+
+</div>
+
+<footer-component></footer-component>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="./src/assets/navigation.js"></script>
+<script src="./src/assets/footer.js"></script>
+<script src="./src/assets/main.js"></script>
+<script>
+const { createApp, ref, onMounted, onUnmounted } = Vue;
+
+const app = createApp({
+  setup() {
+    // Hier holen wir uns NUR die Navigations-Logik aus der main.js
+    const { isScrolled, menuOpen } = useNavigation();
+
+    // Wir brauchen kein onMounted oder onUnmounted für den Slider hier!
+    return {
+      isScrolled, 
+      menuOpen
+    };
+  }
+});
+app.component('navigation-component', NavigationComponent);
+app.component('footer-component', FooterComponent);
+app.mount('#app');
+</script>
+
+</body>
+</html>

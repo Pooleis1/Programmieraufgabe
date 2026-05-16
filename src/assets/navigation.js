@@ -14,7 +14,6 @@ const NavigationComponent = {
         <li><a href="index.html#contact">Kontakt</a></li>
         <li><a href="index.html#about">Über Uns</a></li>
         <li><a href="">Datenschutzerklärung</a></li>
-        <li><a href="">Impressum</a></li>
         </ul>
 
         <button class="burger" :class="{ open: menuOpen }" @click="$emit('toggle-menu')" aria-label="Menü">
@@ -30,7 +29,6 @@ const NavigationComponent = {
         <a href="index.html#contact"   @click="$emit('toggle-menu')">Kontakt</a>
         <a href="index.html#about"     @click="$emit('toggle-menu')">Über Uns</a>
         <a href="" @click="menuOpen=false">Datenschutzerklärung</a>
-        <a href="" @click="menuOpen=false">Impressum</a>
     </div>
   `
 };

@@ -346,35 +346,6 @@
     .form-group textarea { resize: vertical; min-height: 110px; }
     .form-submit { width: 100%; margin-top: 8px; padding: 15px; font-size: 1rem; }
 
-    /* ─── UTILS ─── */
-    .max-w { max-width: 1200px; margin: 0 auto; }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 1024px) {
-      .hero-slider-wrap { width: 45%; }
-      .hero-inner { max-width: 560px; }
-      .support-inner { grid-template-columns: 1fr; gap: 40px; }
-      .support-visual { max-width: 480px; }
-    }
-
-    @media (max-width: 768px) {
-      /*nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      .burger { display: flex; }*/
-
-      .hero-slider-wrap { display: none; }
-      .hero-inner { padding: 60px 24px 48px; max-width: 100%; }
-
-      #features, #pricing, #how, #support, #contact { padding: 80px 24px; }
-      /* footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; } */
-
-      .form-row { grid-template-columns: 1fr; }
-      .contact-form { padding: 32px 24px; }
-
-      .steps-grid::before { display: none; }
-
-      .slider-dots { left: 24px; }
-    }
 
     /* ─── ANIMATIONS ─── */
     .fade-in {
@@ -561,6 +532,151 @@
     }
     .about-legal-note strong { color: rgba(255,255,255,.7); }
 
+    /* KONTAKT-INFO UNTER FORMULAR */
+    .contact-bottom {
+      max-width: 720px; margin: 56px auto 0;
+    }
+    .contact-bottom-divider {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 40px;
+    }
+    .contact-bottom-divider-line { flex: 1; height: 1px; background: var(--gray100); }
+    .contact-bottom-divider-text {
+      font-size: .78rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gray400); white-space: nowrap;
+    }
+
+    .contact-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      margin-bottom: 28px;
+    }
+    .contact-card {
+      background: white; border: 1px solid var(--gray100); border-radius: 14px;
+      padding: 22px 18px; text-align: center;
+      transition: box-shadow .25s, transform .25s, border-color .25s;
+    }
+    .contact-card:hover {
+      box-shadow: 0 8px 28px rgba(10,22,40,.08);
+      transform: translateY(-3px);
+      border-color: rgba(45,156,219,.25);
+    }
+    .contact-card-icon {
+      width: 44px; height: 44px; border-radius: 12px; margin: 0 auto 14px;
+      background: linear-gradient(135deg, var(--blue), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-card-icon svg { width: 22px; height: 22px; fill: white; }
+    .contact-card-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 7px;
+    }
+    .contact-card-value {
+      font-family: var(--font-head); font-size: .95rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 5px; line-height: 1.3;
+    }
+    .contact-card-value a { color: var(--navy); text-decoration: none; }
+    .contact-card-value a:hover { color: var(--accent); }
+    .contact-card-sub { font-size: .78rem; color: var(--gray400); line-height: 1.55; }
+
+    /* Map Embed */
+    .contact-map-wrap {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--gray100);
+      box-shadow: 0 4px 20px rgba(10,22,40,.07);
+      position: relative;
+    }
+    .contact-map-placeholder {
+      width: 100%; height: 260px;
+      background: linear-gradient(135deg, #1a3a6c 0%, #1a4b8c 50%, #2d9cdb 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 16px; position: relative; overflow: hidden;
+    }
+    .contact-map-placeholder::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .contact-map-pin {
+      width: 48px; height: 48px; background: white; border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,.3);
+      position: relative; z-index: 1;
+    }
+    .contact-map-pin svg { transform: rotate(45deg); width: 22px; height: 22px; fill: var(--accent); }
+    .contact-map-text { text-align: center; position: relative; z-index: 1; }
+    .contact-map-text p { font-size: .9rem; color: rgba(255,255,255,.8); margin-bottom: 4px; }
+    .contact-map-text strong { color: white; }
+    .contact-map-open {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: white; color: var(--navy);
+      padding: 10px 20px; border-radius: 8px;
+      font-family: var(--font-body); font-size: .875rem; font-weight: 600;
+      text-decoration: none; transition: background .2s, color .2s, transform .15s;
+      position: relative; z-index: 1;
+    }
+    .contact-map-open:hover { background: var(--accent); color: white; transform: translateY(-1px); }
+    .contact-map-open svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* hours strip */
+    .contact-hours {
+      display: flex; gap: 0; margin-top: 16px;
+      border: 1px solid var(--gray100); border-radius: 12px; overflow: hidden;
+      background: white;
+    }
+    .contact-hours-item {
+      flex: 1; padding: 14px 16px; text-align: center;
+      border-right: 1px solid var(--gray100);
+    }
+    .contact-hours-item:last-child { border-right: none; }
+    .contact-hours-day { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gray400); margin-bottom: 4px; }
+    .contact-hours-time { font-family: var(--font-head); font-size: .9rem; font-weight: 700; color: var(--navy); }
+    .contact-hours-time.closed { color: var(--gray400); font-weight: 400; }
+
+    /* ─── UTILS ─── */
+    .max-w { max-width: 1200px; margin: 0 auto; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero-slider-wrap { width: 45%; }
+      .hero-inner { max-width: 560px; }
+      .support-inner { grid-template-columns: 1fr; gap: 40px; }
+      .support-visual { max-width: 480px; }
+    }
+
+    @media (max-width: 768px) {
+
+      .hero-slider-wrap { display: none; }
+      .hero-inner { padding: 60px 24px 48px; max-width: 100%; }
+
+      #features, #pricing, #how, #support, #contact { padding: 80px 24px; }
+
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form { padding: 32px 24px; }
+
+      .steps-grid::before { display: none; }
+      .about-split { grid-template-columns: 1fr; gap: 24px; }
+      .brands-grid { grid-template-columns: 1fr; }
+      .nizza-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Macht aus mehreren Spalten genau 1 Spalte */
+        gap: 20px; /* Sorgt für einen sauberen Abstand zwischen den Boxen */
+      }
+
+      .slider-dots { left: 24px; }
+      .contact-cards {
+        display: flex;
+        flex-direction: column; /* Stapelt die Boxen untereinander */
+        gap: 20px; /* Sorgt für etwas Abstand zwischen den gestapelten Boxen */
+      }
+      
+      .contact-card {
+        width: 100%; /* Macht die Boxen auf dem Handy schön breit */
+      }
+
+    }
   </style>
 </head>
 <body>
@@ -595,8 +711,6 @@
       </div>
     </div>
   </section>
-  
-  Fehlt Aufgabe 0, 5, 6
 
   <!-- ─── FEATURES ─── -->
   <section id="features">
@@ -744,7 +858,41 @@
         </button>
       </div>
     </div>
-  </section>
+      
+      <!-- KONTAKT-INFO -->
+        <div class="contact-bottom">
+
+          <div class="contact-bottom-divider">
+            <div class="contact-bottom-divider-line"></div>
+            <div class="contact-bottom-divider-text">Erreichbar Unter</div>
+            <div class="contact-bottom-divider-line"></div>
+          </div>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="contact-card-label">E-Mail</div>
+              <div class="contact-card-value"><a href="mailto:office@flexwork.at">office@flexwork.at</a></div>
+    
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-label">Telefon</div>
+              <div class="contact-card-value"><a href="tel:+43123456">+43 1 23456</a></div>
+
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-label">Adresse</div>
+              <div class="contact-card-value">Karlsplatz 13</div>
+              <div class="contact-card-sub">1040 Wien<br>Österreich</div>
+            </div>
+          </div>
+          <div class="contact-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12369.573896067925!2d16.377362324673108!3d48.19645184328317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d07653fefdefd%3A0xd5340060d5e04fd7!2sKarlsplatz%2013%2C%201040%20Wien!5e1!3m2!1sde!2sat!4v1778948217331!5m2!1sde!2sat" 
+            width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          
+        </div>
+
+    </section>
 
    <!-- ABOUT US -->
     <section id="about">
@@ -866,7 +1014,6 @@
       </div>
     </section>
 
-
   <footer-component></footer-component>
 
 </div>
@@ -893,6 +1040,7 @@ const app = createApp({
 
     // Fade-in observer
     let observer;
+    const currentSlide = ref(0); // Startet bei Folie 0
 
     onMounted(() => {
 
