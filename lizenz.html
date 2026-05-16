@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lizenz & Nutzungsrechte – DeskFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/assets/style.css">
+  <style>
+
+    /* HERO */
+    .page-hero { padding-top: calc(var(--nav-h) + 40px); padding-bottom: 40px; background: var(--navy); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 50%, rgba(45,156,219,.15) 0%, transparent 60%); }
+    .page-hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(45,156,219,.15); border: 1px solid rgba(45,156,219,.3); color: var(--accent); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; margin-bottom: 16px; }
+    .page-title { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: white; letter-spacing: -.025em; line-height: 1.1; }
+    .page-sub { margin-top: 12px; font-size: 1rem; color: rgba(255,255,255,.5); font-weight: 300; max-width: 640px; }
+    .update-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(45,156,219,.1); border: 1px solid rgba(45,156,219,.2); color: var(--accent); font-size: .75rem; font-weight: 500; padding: 4px 10px; border-radius: 6px; margin-top: 12px; }
+
+    /* TOC */
+    .toc-wrap { max-width: 900px; margin: 0 auto; padding: 32px 48px 0; }
+    .toc { background: var(--gray50); border: 1px solid var(--gray100); border-radius: 12px; padding: 24px 28px; }
+    .toc-title { font-family: var(--font-head); font-size: .82rem; font-weight: 700; color: var(--navy); margin-bottom: 14px; text-transform: uppercase; letter-spacing: .07em; }
+    .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 32px; }
+    .toc-grid a { font-size: .875rem; color: var(--accent); text-decoration: none; padding: 3px 0; display: block; }
+    .toc-grid a:hover { text-decoration: underline; }
+
+    /* CONTENT */
+    .page-content { max-width: 900px; margin: 0 auto; padding: 52px 48px 96px; }
+    .section-block { margin-bottom: 56px; scroll-margin-top: 90px; }
+    .section-block:last-child { margin-bottom: 0; }
+
+    h2 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--gray100); display: flex; align-items: center; gap: 10px; }
+    h2 svg { width: 18px; height: 18px; fill: var(--accent); flex-shrink: 0; }
+    h3 { font-family: var(--font-head); font-size: .95rem; font-weight: 700; color: var(--navy); margin: 22px 0 10px; }
+    p { font-size: .95rem; line-height: 1.85; color: var(--gray700); font-weight: 300; margin-bottom: 10px; }
+    p:last-child { margin-bottom: 0; }
+    strong { font-weight: 500; color: var(--navy); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul, ol { padding-left: 22px; margin-bottom: 12px; }
+    ul li, ol li { font-size: .95rem; line-height: 1.8; color: var(--gray700); font-weight: 300; margin-bottom: 5px; }
+
+    /* PAKET-KARTEN */
+    .plan-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-bottom: 8px; }
+    .plan-card { border-radius: 14px; overflow: hidden; border: 1px solid var(--gray100); }
+    .plan-card-head { background: var(--navy); padding: 18px 20px; }
+    .plan-card-head.pro { background: linear-gradient(135deg, var(--blue), var(--accent)); }
+    .plan-card-name { font-family: var(--font-head); font-size: .95rem; font-weight: 700; color: white; }
+    .plan-card-sub { font-size: .75rem; color: rgba(255,255,255,.5); margin-top: 2px; }
+    .plan-card-body { padding: 18px 20px; background: var(--gray50); }
+    .plan-card-body ul { padding-left: 16px; margin: 0; }
+    .plan-card-body li { font-size: .82rem; line-height: 1.7; color: var(--gray700); font-weight: 300; margin-bottom: 3px; }
+
+    /* RECHTE-VERGLEICH */
+    .rights-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+    .rights-table thead tr { background: var(--navy); }
+    .rights-table thead th { padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: .75rem; font-weight: 700; color: white; letter-spacing: .06em; text-transform: uppercase; }
+    .rights-table thead th:first-child { border-radius: 10px 0 0 0; }
+    .rights-table thead th:last-child { border-radius: 0 10px 0 0; }
+    .rights-table tbody tr { border-bottom: 1px solid var(--gray100); }
+    .rights-table tbody tr:last-child { border-bottom: none; }
+    .rights-table tbody tr:hover { background: var(--gray50); }
+    .rights-table td { padding: 13px 16px; vertical-align: middle; line-height: 1.55; color: var(--gray700); font-weight: 300; }
+    .rights-table td:first-child { font-weight: 500; color: var(--navy); }
+    .rights-wrap { border: 1px solid var(--gray100); border-radius: 12px; overflow: hidden; }
+
+    .badge-yes { display: inline-flex; align-items: center; gap: 4px; background: var(--green-bg); border: 1px solid var(--green-border); color: var(--green); font-size: .72rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+    .badge-no  { display: inline-flex; align-items: center; gap: 4px; background: var(--red-bg); border: 1px solid var(--red-border); color: var(--red); font-size: .72rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+    .badge-cond { display: inline-flex; align-items: center; gap: 4px; background: var(--orange-bg); border: 1px solid var(--orange-border); color: var(--orange); font-size: .72rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+
+    /* HAFTUNG */
+    .liability-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .liability-card { border-radius: 12px; padding: 20px 22px; border: 1px solid; }
+    .liability-card.excluded { background: var(--red-bg); border-color: var(--red-border); }
+    .liability-card.limited  { background: var(--orange-bg); border-color: var(--orange-border); }
+    .liability-card h4 { font-family: var(--font-head); font-size: .875rem; font-weight: 700; margin-bottom: 6px; }
+    .liability-card.excluded h4 { color: var(--red); }
+    .liability-card.limited  h4 { color: var(--orange); }
+    .liability-card p { font-size: .82rem; line-height: 1.65; color: var(--gray700); margin: 0; font-weight: 300; }
+
+    /* BOXES */
+    .info-box { background: var(--gray50); border: 1px solid var(--gray100); border-radius: 12px; padding: 24px 28px; }
+    .info-box p { margin-bottom: 8px; }
+    .highlight-box { background: var(--sky); border: 1px solid rgba(45,156,219,.2); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-top: 16px; font-size: .875rem; color: var(--gray700); line-height: 1.75; font-weight: 300; }
+    .warning-box { background: var(--red-bg); border: 1px solid var(--red-border); border-left: 3px solid var(--red); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-top: 16px; font-size: .875rem; color: #7f1d1d; line-height: 1.75; font-weight: 300; }
+    .law-ref { display: inline-block; background: var(--gray100); color: var(--gray700); font-size: .72rem; font-weight: 500; padding: 2px 8px; border-radius: 4px; font-family: monospace; margin-left: 4px; }
+
+    /* THIRD-PARTY */
+    .lib-row { display: flex; align-items: center; gap: 16px; padding: 14px 18px; border-bottom: 1px solid var(--gray100); }
+    .lib-row:last-child { border-bottom: none; }
+    .lib-name { font-weight: 500; color: var(--navy); font-size: .9rem; min-width: 120px; }
+    .lib-version { font-size: .8rem; color: var(--gray400); min-width: 60px; }
+    .lib-lic { font-size: .8rem; color: var(--gray700); flex: 1; }
+
+    @media (max-width: 768px) {
+      .page-hero {padding: calc(var(--nav-h) + 20px) 24px 40px 24px !important; }
+      .toc-wrap { padding: 24px 24px 0; }
+      .toc-grid { grid-template-columns: 1fr; }
+      .page-content { padding: 36px 24px 64px; }
+      .plan-cards { grid-template-columns: 1fr; }
+      .liability-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body id="app">
+
+<!-- ─── NAVIGATION ─── -->
+<navigation-component
+  :is-scrolled="isScrolled" 
+  :menu-open="menuOpen"
+  @toggle-menu="menuOpen = !menuOpen">
+</navigation-component>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1 class="page-title">Lizenz & Nutzungsrechte</h1>
+    <p class="page-sub">Diese Seite regelt, welche Rechte Kundinnen und Kunden durch den Erwerb einer DeskFlow-Lizenz erhalten, welche Rechte beim Unternehmen verbleiben und welche Haftungsbeschränkungen gelten.</p>
+  </div>
+</div>
+
+<div class="page-content">
+
+  <!--Nutzungsrecht & Lizenzmodell-->
+  <div class="section-block" id="nutzungsrechte">
+    <h2>
+      Nutzungsrechte & Lizenzmodelle
+    </h2>
+    <p>Mit Abschluss eines Lizenzvertrages, hat der Kunde, dass Recht die Software für seine eignen internen Geschäftszwecke zu nutzen. Die Software ist nicht exklusive, nicht übertragbare und auf die Vertragslaufzeit befristetet</p>
+
+    <h3>Allgemeine Nutzungsrechte & Einschränkungen</h3>
+    <ul>
+      <li><strong>Zugriff:</strong> Der Zugang ist weltweit über das Internet gestattet, solange die Systemvorrausstetzungen erfüllt sinderfüllt sind.</li>
+      <li><strong>Sicherheit:</strong> Der Kunde darf seine Zugänge nicht an Dritte weitergeben.</li>
+      <li><strong>Hosting & Code:</strong> Das Hosting wird vollständig von FlexWork+ übernommen. Der Kunde erhält keinen Zugriff auf den Quellcode.</li>
+      <li><strong>Missbrauchsverbot:</strong> Die Software darf nicht für illegale Zwecke oder zur Störung anderer Netzwerke genutzt werden.</li>
+    </ul>
+
+    <h3>Datenrechte</h3>
+    <ul>
+      <li> Die Daten der Kunden, gehören nur dem Kunden und er hat weiterhin, dass Recht auf diese. Bei Beendigung des Vertrags werden die Daten gelöscht.</li>
+    </ul>
+
+    <h3>Lizenzmodelle im Vergleich</h3>
+    <p>FlexWork+ bietet verschiedene Lizenzmodelle an. Dementsprechend ändern sich auch die Rechte:</p>
+    
+    <div class="rights-wrap" style="margin-top:12px;">
+      <table class="rights-table">
+        <thead>
+          <tr>
+            <th>Leistung / Recht</th>
+            <th>Standard Lizenz</th>
+            <th>Individuelle Lizenz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Preis & Laufzeit</td>
+            <td>60 € / Monat (monatlich kündbar)</td>
+            <td>Individuell nach Vertrag</td>
+          </tr>
+          <tr>
+            <td>Nutzeranzahl</td>
+            <td>Max. 20 Nutzer (Erweiterung gegen Aufpreis)</td>
+            <td>Individuell festgelegt</td>
+          </tr>
+          <tr>
+            <td>Sitzplan-Verwaltung</td>
+            <td><span class="badge-yes">✓ Ja (durch Kunden)</span></td>
+            <td><span class="badge-yes">✓ Ja (durch Kunden)</span></td>
+          </tr>
+          <tr>
+            <td>Design-Anpassungen</td>
+            <td>Nur Firmenlogo (durch FlexWork+ Team)</td>
+            <td>Vollständig individuelles Design (durch FlexWork+ Team)</td>
+          </tr>
+          <tr>
+            <td>Neue / Eigene Funktionen</td>
+            <td><span class="badge-no">✗ Nein</span></td>
+            <td><span class="badge-yes">✓ Ja (durch FlexWork+ Team)</span></td>
+          </tr>
+          <tr>
+            <td>Laufende Updates & Wartung</td>
+            <td><span class="badge-yes">✓ Inkludiert</span></td>
+            <td><span class="badge-yes">✓ Inkludiert</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!--<div class="section-block" id="lizenzmodelle">
+    <h2>
+      § 1 · Lizenzmodelle & Pakete
+    </h2>
+    <p>FlexWork+ bietet verschiedene Lizenzmodelle an. Dementsprechend ändern sich auch die Rechte:</p>
+      <h3>Standard Lizenz</h3>
+        <p>Der Nutzer hat, dass Recht die Software für seine eignen internen Geschäftszwecke zu nutzen.
+        Dieses Recht gilt nur für die Dauer des kostenpflichtigen Abos, welches monatlich kündbar ist.
+        Die Software ist auf 20 Nutzer bei einem Preis von 60€ pro Monat beschränkt. Für zusätzliche Nutzer muss mehr bezahlt werden.
+        Der Kunde darf seine Zugänge nicht an dritte weitergeben. Die Daten der Kunden, gehören nur dem Kunden und er hat weiterhin, dass Recht auf diese. Bei Beendigung des Vertrags werden die Daten gelöscht.
+        Der Zugang ist weltweit über das Internet gestattet, solange die Systemvorrausstetzungen erfüllt sind.
+        Außerdem bekommt der Kunde keinen Zugriff auf den Quellcode. Er kann nur den Sitzplan ändern. 
+        Am Design gibt es nur die Änderung vom Firmenlogo. Sonst wird nichts am Design angepasst.
+        Das Hosting wird auch von uns übernommen. Der Kunde hat außerdem laufende Updates und Wartungen inkludiert.
+        Die Software darf nicht für illegale Zwecke oder zum Stören anderer Netzwerke genutzt werden.
+        </p>
+      <h3>Individuelle Lizenz</h3>
+        <p>Der Nutzer hat, dass Recht die Software für seine eignen internen Geschäftszwecke zu nutzen.
+        Dieses Recht gilt nur für die Dauer des kostenpflichtigen Abos, welches per Vertrag definiert wird.
+        Die Nutzer Anzahle der Software, sowie der Preis wird je nach Aufwand und Wünschen individuell festgelegt und Vertraglich festgehalten.
+        Der Kunde darf seine Zugänge nicht an dritte weitergeben. Die Daten der Kunden, gehören nur dem Kunden und er hat weiterhin, dass Recht auf diese. Bei Beendigung des Vertrags werden die Daten gelöscht.
+        Der Zugang ist weltweit über das Internet gestattet, solange die Systemvorrausstetzungen erfüllt sind.
+        Außerdem bekommt der Kunde keinen Zugriff auf den Quellcode. Er kann nur den Sitzplan ändern. 
+        Das Design und die Funktionen wird von fix zugeordneten FlexWork+ Mitarbeitern zu einer Firma individuell an die Wünsche angepasst.
+        Das Hosting wird auch von uns übernommen. Der Kunde hat außerdem laufende Updates und Wartungen inkludiert.
+        Die Software darf nicht für illegale Zwecke oder zum Stören anderer Netzwerke genutzt werden.
+        </p>
+  </div>-->
+
+
+  <!-- § 2 VERBLEIBENDE RECHTE -->
+  <div class="section-block" id="verbleibende-rechte">
+    <h2>
+      Beim Unternehmen verbleibende Rechte
+    </h2>
+    <p>Alle geistigen Eigentums- und Urheberrechte an der Software verbleiben vollständig bei FlexWork+. Dies bedeutet insbesondere:</p>
+
+    <h3>Urheberrecht & geistiges Eigentum</h3>
+    <ul>
+      <li><strong>Quellcode & Architektur:</strong> Der gesamte Quellcode, die Datenbankstruktur, die Systemarchitektur und alle Algorithmen der Software sind urheberrechtlich geschützt und verbleiben im alleinigen Eigentum von FlexWork+.</li>
+      <li><strong>Design & UX:</strong> Alle grafischen Gestaltungselemente, das User-Interface-Design, Farbschemata und Layoutkonzepte der Basissoftware bleiben Eigentum von FlexWork+.</li>
+      <li><strong>Marken:</strong> Die Marken sind Eigentum von FlexWork+. Eine Nutzung dieser Marken außerhalb des vertragsgemäßen Betriebs ist nicht gestattet.</li>
+      <li><strong>Dokumentation:</strong> Alle technischen Dokumentationen, Schulungsunterlagen und API-Dokumentationen sind urheberrechtlich geschützt.</li>
+    </ul>
+
+    <h3>Weiterentwicklung</h3>
+    <p>FlexWork+ behält das ausschließliche Recht, die Software weiterzuentwickeln, zu ändern oder zu erweitern.</p>
+</div>
+
+  <!-- § 3 VERBOTE -->
+  <div class="section-block" id="verbote">
+    <h2>
+      Verbotene Handlungen
+    </h2>
+    <p>Um unsere Software und Systeme zu schützen, sind folgende Dinge ausdrücklich verboten:</p>
+    <ul>
+      <li>Den Quellcode zu dekompromieren, zu kopieren oder  die Software nachzubauen</li>
+      <li>Die Software weiterzuverkaufen oder zu vermieten</li>
+      <li>Zugangsdaten an Personen außerhalb der eigenen Firma weiterzugeben</li>
+      <li>Unsere Sicherheitsvorkehrungen oder technischen Schutzmaßnahmen zu umgehen</li>
+      <li>Die Software für illegale Zwecke zu nutzen oder rechtswidrige Daten hochzuladen</li>
+    </ul>
+    <div class="warning-box">
+      Verstöße gegen diese Bestimmungen berechtigen FlexWork+ zur fristlosen Kündigung des Lizenzvertrages und können Schadenersatzansprüche nach §§ 81 ff. UrhG sowie Unterlassungsansprüche begründen.
+    </div>
+  </div>
+
+  <!-- § 4 HAFTUNG -->
+  <div class="section-block" id="haftung">
+    <h2>Haftungsbeschränkungen
+    </h2>
+    <p>FlexWork+ haftet für Schäden in folgendem Umfang:</p>
+    <ul>
+      <li><strong>Server Ausfälle und Erreichbarkeit:</strong> 
+        Wir sind bemüht, dass eine dauerhafte Verfügbarkeit gewaehrleistet ist. Übernehmen aber für Aufälle durch Server-Updates, teschnische Störungen beim Host oder andere keine Haftung      <li><strong>Folgeschäden und Umsatzausfälle:</strong> Wir haften nicht für indirekte Schäden. Wenn durch einen Ausfall der Software im Büro Chaos entsteht, Arbeitszeit verloren geht oder ein entgangener Gewinn entsteht, können wir dafür nicht haftbar gemacht werden.</li>
+      </li>
+      <li><strong>Folgeschäden:</strong> 
+        Wenn durch einen Ausfall der Software, Folgeschäden (Chaos der Sitzplatz zuteilung) entsteht, sind wir dafür nicht Haftbar
+      </li>  
+      <li><strong>Datenverlust:</strong> 
+        Wir machen regelmäßig Backups, sollte jedoch dennoch ein Datenverlust zustande kommen, haften wir nur für den Aufwand um die Daten aus den BAckups wiederherzustellen
+      </li>
+      <li><strong>Fahrlässigkeit:</strong>
+        Nach Gesetz sind wir uneingeschränkt Haftbar, wenn ein Schaden absichtlich oder durch Fahrlässigkeit verursacht wird. Bei leichter Fahrlässigkeit ist die HAfung ausgeschlossen
+      </li>
+      <li><strong>Finanzielle Obergrenze:</strong> 
+        Sollte es zu einem berechtigten Schadensfall kommen, ist unsere Haftung maximal auf den Betrag begrenzt, den der Kunde in den letzten 12 Monaten an uns gezahlt hat
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- § 6 GEWÄHRLEISTUNG -->
+  <div class="section-block" id="gewaehrleistung">
+    <h2>
+      Gewährleistung & Verfügbarkeit
+    </h2>
+    <p>FlexWork+ strebt Verfügbarkeit von 90% p.a. an. Wartungsarbeiten werden min. 48 Stunden im Voraus angekündigt statt.</p>
+    <p>Wir übernehmen keine Garantie dafür, dass die Software fehlerfrei ist, jedoch dass diese für den vereinbarten Zweck tauglich ist.</p>
+    <p>Sollte ein Fehler entdeckt werden, bitten wir darum, diesen an den Support zu melden. Wir bemühen und darum diesen schnellmöglichst zu Beheben. Leichte Fehler berechtigen nicht die Kürzung der Abo Gebühr </p>
+    <p>Da die Software nur abonniert wird, ist ständige weiterentwicklung, worunter Funktioneren verändern, technische Standards anpassen, möglich, solange die Kernfunktionen erhalten bleiben </p>
+
+    </ul>
+  </div>
+
+  <!-- § 7 KÜNDIGUNG -->
+  <div class="section-block" id="kuendigung">
+    <h2>
+      Laufzeit & Kündigung
+    </h2>
+    <div class="info-box">
+      <p><strong>Standard-Paket:</strong> Monatlich, Kündigung zum Monatsende mit 2-Wochen-Frist.</p>
+      <p><strong>Individuell:</strong> Mindestlaufzeit 12 Monate, danach jährlich verlängerbar, Kündigung 3 Monate vor Laufzeitende.</p>
+      <p><strong>Fristlose Kündigung</strong> durch FlexWork+ ist möglich bei wesentlichem Vertragsverstoß, Zahlungsverzug über 30 Tage oder Insolvenz des Lizenznehmers.</p>
+      <p><strong>Nach Kündigung:</strong> Der Lizenznehmer erhält 30 Tage Zugang zum Datenexport. Danach werden alle Daten gelöscht. Eine Erstattung anteilig bezahlter Lizenzgebühren erfolgt nur beim Standard-Paket.</p>
+    </div>
+  </div>
+
+  <!-- § 8 DRITTLIZENZEN -->
+  <div class="section-block" id="drittlizenzen">
+    <h2>
+      Drittanbieter-Lizenzen (Komponenten)
+    </h2>
+    <p>FlexWork+ nutzt folgende Open-Source-Komponenten. Die jeweiligen Lizenztexte sind beigelegt:</p>
+    <div class="rights-wrap">
+      <div class="lib-row">
+        <span class="lib-name">Vue.js</span>
+        <span class="lib-version">3.4.21</span>
+        <span class="lib-lic">MIT License · <a href="https://github.com/vuejs/core/blob/main/LICENSE" target="_blank">github.com/vuejs/core</a></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-name">Syne</span>
+        <span class="lib-version">Schriftart</span>
+        <span class="lib-lic">SIL Open Font License 1.1 · <a href="https://openfontlicense.org" target="_blank">openfontlicense.org</a></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-name">DM Sans</span>
+        <span class="lib-version">Schriftart</span>
+        <span class="lib-lic">SIL Open Font License 1.1 · <a href="https://openfontlicense.org" target="_blank">openfontlicense.org</a></span>
+      </div>
+      <div class="lib-row">
+        <span class="lib-name">Material Icons</span>
+        <span class="lib-version">Icons</span>
+        <span class="lib-lic">Apache License 2.0 · <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">apache.org</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- § 9 ANWENDBARES RECHT -->
+  <div class="section-block" id="anwendbares-recht">
+    <h2>
+      Anwendbares Recht & Gerichtsstand
+    </h2>
+    <p>Dieser Lizenzvertrag unterliegt ausschließlich dem <strong>Recht der Republik Österreich</strong>, wobei wir das internationale UN-Kaufrecht (CISG) sowie die Kollisionsnormen des IPR ausdrücklich ausschließen.</p> 
+    <p>Da FlexWork+ primär für den B2B-Einsatz konzipiert ist, vereinbaren wir als ausschließlichen Gerichtsstand für alle Streitigkeiten aus diesem Vertrag <strong>Wien, Österreich</strong>, soweit der Lizenznehmer Unternehmer im Sinne des UGB ist. 
+      Sollte unsere Software ausnahmsweise von Verbrauchern genutzt werden, gilt zu deren Schutz natürlich der gesetzliche Gerichtsstand gemäß Konsumentenschutzgesetz</p>
+  </div>
+
+  <!-- § 10 KONTAKT -->
+  <div class="section-block" id="kontakt-lizenz">
+    <h2>
+      Kontakt für Lizenzfragen
+    </h2>
+    <div class="info-box">
+      <p><strong>FlexWork+</strong></p>
+      <p>Karlsplatz 4 · 1040 Wien · Österreich</p>
+      <p style="margin-top:10px;"><strong>E-Mail Lizenz:</strong> <a href="mailto:lizenz@deskflow.at">lizenz@flexwork.at</a></p>
+      <p><strong>E-Mail Allgemein:</strong> <a href="mailto:office@deskflow.at">office@flexwork.at</a></p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<footer-component></footer-component>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="./src/assets/navigation.js"></script>
+<script src="./src/assets/footer.js"></script>
+<script src="./src/assets/main.js"></script>
+<script>
+const { createApp, ref, onMounted, onUnmounted } = Vue;
+
+const app = createApp({
+  setup() {
+    // Hier holen wir uns NUR die Navigations-Logik aus der main.js
+    const { isScrolled, menuOpen } = useNavigation();
+
+    // Wir brauchen kein onMounted oder onUnmounted für den Slider hier!
+    return {
+      isScrolled, 
+      menuOpen
+    };
+  }
+});
+app.component('navigation-component', NavigationComponent);
+app.component('footer-component', FooterComponent);
+app.mount('#app');
+</script>
+
+</body>
+</html>
